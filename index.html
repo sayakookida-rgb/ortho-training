@@ -92,6 +92,29 @@ input{font-family:-apple-system,sans-serif;}
 </div>
 
 <script>
+// ===== 音声 =====
+var audioCtx = null;
+function getAudioCtx(){
+  if(!audioCtx) audioCtx = new (window.AudioContext||window.webkitAudioContext)();
+  return audioCtx;
+}
+function beep(freq, dur, vol){
+  try{
+    var ctx = getAudioCtx();
+    var osc = ctx.createOscillator();
+    var gain = ctx.createGain();
+    osc.connect(gain); gain.connect(ctx.destination);
+    osc.frequency.value = freq||880;
+    osc.type = "sine";
+    gain.gain.setValueAtTime(vol||0.3, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime+(dur||0.15));
+    osc.start(ctx.currentTime);
+    osc.stop(ctx.currentTime+(dur||0.15));
+  }catch(e){}
+}
+function beepSwitch(){ beep(880, 0.12, 0.3); }
+function beepDone(){ beep(880,0.12,0.3); setTimeout(function(){beep(1100,0.2,0.35);},180); }
+
 var SKEY = "ortho2";
 var rec = {};
 try { rec = JSON.parse(localStorage.getItem(SKEY)||"{}"); } catch(e){}
@@ -159,12 +182,12 @@ function updateHeader(){
 }
 
 // タイマー状態
-var lipState   = {elapsed:0,running:false,finished:false,saved:0,startTs:0,raf:null,seq:null,accent:"",onDone:null};
-var tongState  = {elapsed:0,running:false,finished:false,saved:0,startTs:0,raf:null,seq:null,accent:"",onDone:null};
+var lipState   = {elapsed:0,running:false,finished:false,saved:0,startTs:0,raf:null,seq:null,accent:"",onDone:null,lastStep:-1};
+var tongState  = {elapsed:0,running:false,finished:false,saved:0,startTs:0,raf:null,seq:null,accent:"",onDone:null,lastStep:-1};
 
 function initTimer(st,seq,accent,onDone){
   if(st.raf)cancelAnimationFrame(st.raf);
-  st.elapsed=0; st.running=false; st.finished=false; st.saved=0;
+  st.elapsed=0; st.running=false; st.finished=false; st.saved=0; st.lastStep=-1;
   st.seq=seq; st.accent=accent; st.onDone=onDone;
 }
 
@@ -236,6 +259,7 @@ function toggleTimer(wrapId){
     if(st.raf)cancelAnimationFrame(st.raf);
     renderTimer(st,wrapId,null);
   } else {
+    try{ getAudioCtx().resume(); }catch(e){}
     st.running=true;
     st.startTs=performance.now()-st.saved*1000;
     tickTimer(st,wrapId);
@@ -254,9 +278,19 @@ function tickTimer(st,wrapId){
   var e=Math.floor((performance.now()-st.startTs)/1000);
   if(e>=total){
     st.elapsed=total; st.running=false; st.finished=true;
+    beepDone();
     renderTimer(st,wrapId,st.onDone);
   } else {
     st.elapsed=e;
+    // ステップが切り替わったら音を鳴らす
+    var gs=getStep(st);
+    var curStepIdx=0, acc=0;
+    for(var i=0;i<st.seq.length;i++){
+      if(acc+st.seq[i].dur>st.elapsed){curStepIdx=i;break;}
+      acc+=st.seq[i].dur; curStepIdx=i;
+    }
+    if(st.lastStep!==-1 && curStepIdx!==st.lastStep) beepSwitch();
+    st.lastStep=curStepIdx;
     renderTimer(st,wrapId,null);
     st.raf=requestAnimationFrame(function(){tickTimer(st,wrapId);});
   }
