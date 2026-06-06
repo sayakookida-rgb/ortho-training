@@ -13,8 +13,6 @@ body{font-family:-apple-system,sans-serif;overscroll-behavior:none;}
 button{font-family:-apple-system,sans-serif;-webkit-appearance:none;cursor:pointer;}
 input{font-family:-apple-system,sans-serif;}
 #app{max-width:500px;margin:0 auto;min-height:100%;display:flex;flex-direction:column;}
-
-/* ヘッダー */
 #hdr{background:linear-gradient(135deg,#7b2ff7,#b06eff);padding:24px 18px 18px;color:#fff;}
 #hdr-sub{font-size:12px;opacity:.8;margin-bottom:2px;}
 #hdr-title{font-size:24px;font-weight:800;}
@@ -24,17 +22,11 @@ input{font-family:-apple-system,sans-serif;}
 #prog-bg{flex:1;height:9px;background:rgba(255,255,255,.3);border-radius:9px;overflow:hidden;}
 #prog-fill{height:100%;background:#fff;border-radius:9px;width:0%;transition:width .4s;}
 #prog-txt{font-size:14px;font-weight:800;}
-
-/* タブ */
 #tabs{display:flex;background:#fff;border-bottom:2px solid #ede0ff;position:sticky;top:0;z-index:10;}
-.tb{flex:1;padding:13px 0;border:none;background:none;font-size:13px;font-weight:600;color:#bbb;border-bottom:3px solid transparent;transition:all .2s;}
+.tb{flex:1;padding:13px 0;border:none;background:none;font-size:13px;font-weight:600;color:#bbb;border-bottom:3px solid transparent;}
 .tb.on{font-weight:800;color:#7b2ff7;border-bottom:3px solid #7b2ff7;}
-
-/* コンテンツ */
 #content{flex:1;padding:16px 14px 50px;overflow-y:auto;}
 .panel{display:flex;flex-direction:column;gap:14px;}
-
-/* カード */
 .card{border-radius:20px;padding:18px 16px;position:relative;box-shadow:0 3px 14px rgba(0,0,0,.08);}
 .c-head{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
 .c-ico{font-size:34px;line-height:1;}
@@ -42,52 +34,36 @@ input{font-family:-apple-system,sans-serif;}
 .c-desc{font-size:12px;color:#999;margin-top:1px;}
 .badge{position:absolute;top:12px;right:12px;background:#4caf50;color:#fff;border-radius:20px;padding:3px 11px;font-size:11px;font-weight:700;}
 .done-box{background:#fff;border-radius:12px;padding:11px 13px;font-size:13px;color:#555;}
-.redo{margin-top:8px;padding:4px 12px;border-radius:16px;border:1px solid #ddd;background:#fff;color:#aaa;font-size:11px;}
-
-/* ボタン */
-.btn-start{width:100%;padding:13px;border-radius:14px;border:none;color:#fff;font-size:15px;font-weight:800;}
-.btn-save{width:100%;padding:13px;border-radius:14px;border:none;color:#fff;font-size:15px;font-weight:800;margin-top:10px;}
-.btn-toggle{padding:10px 26px;border-radius:50px;border:none;font-size:14px;font-weight:800;}
-.btn-reset{padding:10px 14px;border-radius:50px;background:#fff;font-size:14px;font-weight:700;}
-.ctrl-row{display:flex;gap:8px;justify-content:center;}
-
-/* ガイドボード */
-.guide{width:100%;border-radius:16px;padding:16px;text-align:center;min-height:100px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;transition:background .3s,border .3s;}
+.redo{margin-top:8px;padding:4px 12px;border-radius:16px;border:1px solid #ddd;background:#fff;color:#aaa;font-size:11px;cursor:pointer;}
+.btn-start{width:100%;padding:13px;border-radius:14px;border:none;color:#fff;font-size:15px;font-weight:800;cursor:pointer;}
+.btn-save{width:100%;padding:13px;border-radius:14px;border:none;color:#fff;font-size:15px;font-weight:800;margin-top:10px;cursor:pointer;}
+.guide{width:100%;border-radius:16px;padding:16px;text-align:center;min-height:100px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;}
 .g-emoji{font-size:40px;line-height:1;}
 .g-dir{font-size:28px;font-weight:900;letter-spacing:1px;}
-.g-msg{font-size:14px;font-weight:700;white-space:pre-line;line-height:1.5;}
+.g-msg{font-size:14px;font-weight:700;line-height:1.5;}
 .g-remain{font-size:12px;color:#aaa;margin-top:2px;}
-
-/* サークル */
-.circ-wrap{position:relative;width:120px;height:120px;}
+.circ-wrap{position:relative;width:120px;height:120px;flex-shrink:0;}
 .circ-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
 .circ-time{font-size:24px;font-weight:900;color:#5a1fa0;}
 .circ-lbl{font-size:10px;color:#ccc;}
-
-/* 計測 */
+.ctrl-row{display:flex;gap:8px;justify-content:center;}
+.btn-tog{padding:10px 26px;border-radius:50px;border:none;font-size:14px;font-weight:800;cursor:pointer;}
+.btn-rst{padding:10px 14px;border-radius:50px;background:#fff;font-size:14px;font-weight:700;cursor:pointer;}
 .mbox{background:#fff;border-radius:14px;padding:14px;margin-top:10px;}
 .mbox-title{font-size:13px;font-weight:700;color:#555;margin-bottom:8px;}
 .mrow{display:flex;align-items:center;gap:6px;margin-bottom:10px;}
 .minput{flex:1;padding:9px 12px;border-radius:10px;border:2px solid #ffc0d8;font-size:20px;font-weight:800;color:#ff6b9d;}
 .munit{font-size:14px;font-weight:700;color:#888;}
-
-/* 完了バナー */
-#done-banner{background:linear-gradient(135deg,#a8e6cf,#56ccf2);border-radius:18px;padding:18px;text-align:center;color:#fff;box-shadow:0 3px 14px rgba(86,204,242,.3);}
-
-/* 履歴 */
-.hcard{background:#fff;border-radius:16px;padding:14px 16px;box-shadow:0 2px 8px rgba(0,0,0,.06);}
+#done-banner{background:linear-gradient(135deg,#a8e6cf,#56ccf2);border-radius:18px;padding:18px;text-align:center;color:#fff;}
+.hcard{background:#fff;border-radius:16px;padding:14px 16px;box-shadow:0 2px 8px rgba(0,0,0,.06);margin-bottom:10px;}
 .hdate{font-weight:800;color:#5a1fa0;font-size:14px;}
 .hall{font-size:11px;background:#e8f5e9;color:#4caf50;padding:2px 9px;border-radius:16px;font-weight:700;float:right;}
 .hrow{display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:10px;margin-top:6px;}
-
-/* 成績 */
 .sgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
 .scard{background:#fff;border-radius:16px;padding:16px 12px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.06);border:2px solid #ede0ff;}
-.s-ico{font-size:28px;}
-.s-val{font-size:20px;font-weight:800;color:#5a1fa0;}
-.s-lbl{font-size:11px;color:#aaa;margin-top:1px;}
-
+.s-ico{font-size:28px;}.s-val{font-size:20px;font-weight:800;color:#5a1fa0;}.s-lbl{font-size:11px;color:#aaa;margin-top:1px;}
 .empty{text-align:center;padding:40px;color:#ccc;font-size:14px;}
+.timer-area{display:flex;flex-direction:column;align-items:center;gap:12px;width:100%;}
 </style>
 </head>
 <body>
@@ -116,382 +92,344 @@ input{font-family:-apple-system,sans-serif;}
 </div>
 
 <script>
-// ===== データ =====
 var SKEY = "ortho2";
 var rec = {};
-try { rec = JSON.parse(localStorage.getItem(SKEY) || "{}"); } catch(e){}
-
-function save() { try { localStorage.setItem(SKEY, JSON.stringify(rec)); } catch(e){} }
-function today() { return new Date().toISOString().slice(0,10); }
-function todayRec() { return rec[today()] || {}; }
-function setTodayRec(key, val) {
-  if (!rec[today()]) rec[today()] = {};
-  rec[today()][key] = val;
-  save();
+try { rec = JSON.parse(localStorage.getItem(SKEY)||"{}"); } catch(e){}
+function save(){ try{ localStorage.setItem(SKEY,JSON.stringify(rec)); }catch(e){} }
+function todayStr(){
+  var d=new Date();
+  return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
 }
+function todayRec(){ return rec[todayStr()]||{}; }
+function setTodayRec(k,v){ if(!rec[todayStr()])rec[todayStr()]={};rec[todayStr()][k]=v;save(); }
 
-// ===== シーケンス =====
-function makeTongueSeq() {
-  var s = [{type:"tip",dur:3,msg:"口をリラックスして\n準備してね",em:"😊"}];
-  for (var i=0;i<20;i++) {
-    s.push({type:"up", dur:5, msg:"べろを上あごに\nぴったりつけて！", em:"👅"});
-    s.push({type:"rest",dur:3,msg:"ストップ！\nリラックス〜",em:"😌"});
+// シーケンス
+function makeTSeq(){
+  var s=[{type:"tip",dur:3,msg:"口をリラックスして<br>準備してね",em:"😊"}];
+  for(var i=0;i<20;i++){
+    s.push({type:"up",dur:5,msg:"べろを上あごに<br>ぴったりつけて！",em:"👅"});
+    s.push({type:"rest",dur:3,msg:"ストップ！<br>リラックス〜",em:"😌"});
   }
-  s.push({type:"tip",dur:17,msg:"おつかれさま！\nよくがんばったね🎉",em:"🌟"});
+  s.push({type:"tip",dur:17,msg:"おつかれさま！<br>よくがんばったね🎉",em:"🌟"});
   return s;
 }
-var DIRS = [
-  {label:"まえ",  em:"⬆️", msg:"まっすぐ前に！\nキープ！！",  col:"#ff6b9d"},
-  {label:"みぎ",  em:"➡️", msg:"右に引っ張って！\nキープ！！", col:"#ff9f43"},
-  {label:"ひだり",em:"⬅️", msg:"左に引っ張って！\nキープ！！", col:"#54a0ff"},
-  {label:"うえ",  em:"🔼", msg:"上に引っ張って！\nキープ！！", col:"#5f27cd"},
-  {label:"した",  em:"🔽", msg:"下に引っ張って！\nキープ！！", col:"#00d2d3"}
+var DIRS=[
+  {label:"まえ",em:"⬆️",msg:"まっすぐ前に！<br>キープ！！",col:"#ff6b9d"},
+  {label:"みぎ",em:"➡️",msg:"右に引っ張って！<br>キープ！！",col:"#ff9f43"},
+  {label:"ひだり",em:"⬅️",msg:"左に引っ張って！<br>キープ！！",col:"#54a0ff"},
+  {label:"うえ",em:"🔼",msg:"上に引っ張って！<br>キープ！！",col:"#5f27cd"},
+  {label:"した",em:"🔽",msg:"下に引っ張って！<br>キープ！！",col:"#00d2d3"}
 ];
-function makeLipSeq() {
-  var s = [{type:"tip",dur:3,msg:"リットレメーターを\nくわえて準備！",em:"💪",col:"#ff6b9d"}];
-  var e=3, di=0;
-  while(e<163) {
+function makeLSeq(){
+  var s=[{type:"tip",dur:3,msg:"リットレメーターを<br>くわえて準備！",em:"💪",col:"#ff6b9d"}];
+  var e=3,di=0;
+  while(e<163){
     var d=DIRS[di%5];
     s.push({type:"hold",dur:10,msg:d.msg,em:d.em,label:d.label,col:d.col});
-    e+=10; if(e>=163) break;
+    e+=10; if(e>=163)break;
     s.push({type:"rest",dur:3,msg:"すこし休憩〜",em:"😮‍💨",col:"#aaa"});
     e+=3; di++;
   }
-  s.push({type:"tip",dur:17,msg:"おつかれさま！\n計測値を入力してね📊",em:"🎉",col:"#4caf50"});
+  s.push({type:"tip",dur:17,msg:"おつかれさま！<br>計測値を入力してね📊",em:"🎉",col:"#4caf50"});
   return s;
 }
-var TSEQ = makeTongueSeq();
-var LSEQ = makeLipSeq();
+var TSEQ=makeTSeq(), LSEQ=makeLSeq();
 
-// ===== タブ切り替え =====
-function showTab(id, btn) {
-  document.getElementById("tab-today").style.display   = "none";
-  document.getElementById("tab-history").style.display = "none";
-  document.getElementById("tab-stats").style.display   = "none";
-  document.getElementById("tab-"+id).style.display = "flex";
-  var bs = document.querySelectorAll(".tb");
-  for (var i=0;i<bs.length;i++) bs[i].classList.remove("on");
+// タブ
+function showTab(id,btn){
+  ["today","history","stats"].forEach(function(t){
+    document.getElementById("tab-"+t).style.display="none";
+  });
+  document.getElementById("tab-"+id).style.display="flex";
+  document.querySelectorAll(".tb").forEach(function(b){b.classList.remove("on");});
   btn.classList.add("on");
-  if (id==="history") renderHistory();
-  if (id==="stats")   renderStats();
+  if(id==="history")renderHistory();
+  if(id==="stats")renderStats();
 }
 
-// ===== ヘッダー更新 =====
-function updateHeader() {
-  var r = todayRec();
-  var cnt = (r.lip && r.lip.done ? 1:0) + (r.tongue && r.tongue.done ? 1:0);
-  var d = new Date();
-  document.getElementById("prog-date").textContent =
-    "きょうの進捗 (" + d.getFullYear() + "/" +
-    String(d.getMonth()+1).padStart(2,"0") + "/" +
-    String(d.getDate()).padStart(2,"0") + ")";
-  document.getElementById("prog-fill").style.width = (cnt/2*100)+"%";
-  document.getElementById("prog-txt").textContent = cnt+"/2";
+// ヘッダー
+function updateHeader(){
+  var r=todayRec();
+  var cnt=(r.lip&&r.lip.done?1:0)+(r.tongue&&r.tongue.done?1:0);
+  var d=new Date();
+  document.getElementById("prog-date").textContent=
+    "きょうの進捗 ("+d.getFullYear()+"/"+String(d.getMonth()+1).padStart(2,"0")+"/"+String(d.getDate()).padStart(2,"0")+")";
+  document.getElementById("prog-fill").style.width=(cnt/2*100)+"%";
+  document.getElementById("prog-txt").textContent=cnt+"/2";
 }
 
-// ===== ガイドタイマー =====
-function GuidedTimer(seq, accent, onDone) {
-  var total = 0;
-  for (var i=0;i<seq.length;i++) total += seq[i].dur;
-  var elapsed=0, running=false, finished=false;
-  var saved=0, startTs=0, rafId=0;
-  var self = this;
-  this.el = document.createElement("div");
-  this.el.style.display = "flex";
-  this.el.style.flexDirection = "column";
-  this.el.style.alignItems = "center";
-  this.el.style.gap = "12px";
+// タイマー状態
+var lipState   = {elapsed:0,running:false,finished:false,saved:0,startTs:0,raf:null,seq:null,accent:"",onDone:null};
+var tongState  = {elapsed:0,running:false,finished:false,saved:0,startTs:0,raf:null,seq:null,accent:"",onDone:null};
 
-  var R=50, circ=2*Math.PI*R;
-
-  function getStep() {
-    var acc=0;
-    for (var i=0;i<seq.length;i++) {
-      if (acc+seq[i].dur > elapsed) return {s:seq[i], se:elapsed-acc};
-      acc+=seq[i].dur;
-    }
-    var last=seq[seq.length-1];
-    return {s:last, se:last.dur};
-  }
-
-  function render() {
-    var gs = getStep(); var s=gs.s; var se=gs.se;
-    var srem = s.dur - se;
-    var trem = total - elapsed;
-    var mins = Math.floor(trem/60);
-    var secs = trem%60;
-    var pct = elapsed/total;
-    var off = circ*(1-pct);
-    var bgc = s.col || accent;
-    var isRest = s.type==="rest";
-
-    var guideStyle = isRest
-      ? "background:#f0fff4;border:2.5px solid #a8e6a8;"
-      : "background:"+bgc+"18;border:2.5px solid "+bgc+"55;";
-
-    var html = '<div class="guide" style="'+guideStyle+'">' +
-      '<div class="g-emoji">'+s.em+'</div>' +
-      (s.label ? '<div class="g-dir" style="color:'+bgc+'">'+s.label+'</div>' : '') +
-      '<div class="g-msg" style="color:'+(isRest?"#4caf50":"#444")+'">'+s.msg.replace(/\n/g,"<br>")+'</div>' +
-      (s.type!=="tip" ? '<div class="g-remain">のこり '+srem+'秒</div>' : '') +
-      '</div>';
-
-    var stroke = finished ? "#4caf50" : accent;
-    html += '<div class="circ-wrap">' +
-      '<svg width="120" height="120">' +
-      '<circle cx="60" cy="60" r="'+R+'" fill="none" stroke="#ede0ff" stroke-width="9"/>' +
-      '<circle cx="60" cy="60" r="'+R+'" fill="none" stroke="'+stroke+'" stroke-width="9"' +
-      ' stroke-dasharray="'+circ+'" stroke-dashoffset="'+off+'"' +
-      ' stroke-linecap="round" transform="rotate(-90 60 60)"/>' +
-      '</svg>' +
-      '<div class="circ-center">' +
-      (finished
-        ? '<span style="font-size:32px">✅</span>'
-        : '<span class="circ-time">'+mins+':'+String(secs).padStart(2,"0")+'</span><span class="circ-lbl">のこり</span>'
-      ) +
-      '</div></div>';
-
-    if (!finished) {
-      var tbg = running ? "#ffe0ef" : "linear-gradient(135deg,"+accent+","+accent+"bb)";
-      var tc  = running ? accent : "#fff";
-      var tlbl = running ? "⏸ 一時停止" : (elapsed===0 ? "▶ スタート" : "▶ 再開");
-      html += '<div class="ctrl-row">' +
-        '<button class="btn-toggle" id="tmr-tog" style="background:'+tbg+';color:'+tc+'">'+tlbl+'</button>' +
-        '<button class="btn-reset"  id="tmr-rst" style="border:2px solid '+accent+'44;color:'+accent+'">🔄</button>' +
-        '</div>';
-    }
-
-    self.el.innerHTML = html;
-    var tog = document.getElementById("tmr-tog");
-    var rst = document.getElementById("tmr-rst");
-    if (tog) tog.onclick = function(){ toggle(); };
-    if (rst) rst.onclick = function(){ reset(); };
-  }
-
-  function tick() {
-    var e = Math.floor((performance.now() - startTs)/1000);
-    if (e >= total) {
-      elapsed = total; running = false; finished = true;
-      render(); if (onDone) onDone();
-    } else {
-      elapsed = e; render();
-      rafId = requestAnimationFrame(tick);
-    }
-  }
-
-  function toggle() {
-    if (running) { saved=elapsed; running=false; cancelAnimationFrame(rafId); render(); }
-    else { running=true; startTs=performance.now()-saved*1000; tick(); }
-  }
-
-  function reset() {
-    cancelAnimationFrame(rafId);
-    elapsed=0; running=false; finished=false; saved=0; render();
-  }
-
-  render();
+function initTimer(st,seq,accent,onDone){
+  if(st.raf)cancelAnimationFrame(st.raf);
+  st.elapsed=0; st.running=false; st.finished=false; st.saved=0;
+  st.seq=seq; st.accent=accent; st.onDone=onDone;
 }
 
-// ===== リットレメーターカード =====
-function renderLip() {
-  var el = document.getElementById("c-lip");
-  if (!el) return;
-  var r = todayRec().lip;
-  var col = "#ff6b9d";
+function getStep(st){
+  var acc=0,seq=st.seq;
+  for(var i=0;i<seq.length;i++){
+    if(acc+seq[i].dur>st.elapsed)return{s:seq[i],se:st.elapsed-acc};
+    acc+=seq[i].dur;
+  }
+  var last=seq[seq.length-1];
+  return{s:last,se:last.dur};
+}
 
-  if (r && r.done) {
-    el.innerHTML = '<div class="card" style="background:#f6fff6;border:2px solid #a8e6a8">' +
-      '<div class="badge">✅ 完了！</div>' +
-      '<div class="c-head"><span class="c-ico">💪</span><div>' +
-      '<div class="c-name" style="color:'+col+'">リットレメーター</div>' +
-      '<div class="c-desc">くちびるの力を鍛える · 3分間</div></div></div>' +
-      '<div class="done-box">⏰ 完了時刻：<strong>'+r.time+'</strong><br>' +
-      '<span style="margin-top:4px;display:block">📊 計測値：<strong style="color:'+col+';font-size:18px">'+r.measure+' kg</strong></span>' +
+function totalTime(st){
+  var t=0; st.seq.forEach(function(x){t+=x.dur;}); return t;
+}
+
+function renderTimer(st,wrapId,afterFn){
+  var wrap=document.getElementById(wrapId);
+  if(!wrap)return;
+  var total=totalTime(st);
+  var gs=getStep(st); var s=gs.s; var se=gs.se;
+  var srem=s.dur-se;
+  var trem=total-st.elapsed;
+  var mins=Math.floor(trem/60);
+  var secs=trem%60;
+  var pct=st.elapsed/total;
+  var R=50,circ=2*Math.PI*R;
+  var off=circ*(1-pct);
+  var bgc=s.col||st.accent;
+  var isRest=s.type==="rest";
+  var stroke=st.finished?"#4caf50":st.accent;
+
+  var html='<div class="timer-area">';
+  html+='<div class="guide" style="background:'+(isRest?"#f0fff4":bgc+"18")+';border:2.5px solid '+(isRest?"#a8e6a8":bgc+"55")+'">';
+  html+='<div class="g-emoji">'+s.em+'</div>';
+  if(s.label)html+='<div class="g-dir" style="color:'+bgc+'">'+s.label+'</div>';
+  html+='<div class="g-msg" style="color:'+(isRest?"#4caf50":"#444")+'">'+s.msg+'</div>';
+  if(s.type!=="tip")html+='<div class="g-remain">のこり '+srem+'秒</div>';
+  html+='</div>';
+
+  html+='<div class="circ-wrap"><svg width="120" height="120">';
+  html+='<circle cx="60" cy="60" r="'+R+'" fill="none" stroke="#ede0ff" stroke-width="9"/>';
+  html+='<circle cx="60" cy="60" r="'+R+'" fill="none" stroke="'+stroke+'" stroke-width="9" stroke-dasharray="'+circ+'" stroke-dashoffset="'+off+'" stroke-linecap="round" transform="rotate(-90 60 60)"/>';
+  html+='</svg><div class="circ-center">';
+  if(st.finished)html+='<span style="font-size:32px">✅</span>';
+  else html+='<span class="circ-time">'+mins+':'+String(secs).padStart(2,"0")+'</span><span class="circ-lbl">のこり</span>';
+  html+='</div></div>';
+
+  if(!st.finished){
+    var tbg=st.running?"#ffe0ef":"linear-gradient(135deg,"+st.accent+","+st.accent+"bb)";
+    var tc=st.running?st.accent:"#fff";
+    var tlbl=st.running?"⏸ 一時停止":(st.elapsed===0?"▶ スタート":"▶ 再開");
+    html+='<div class="ctrl-row">';
+    html+='<button class="btn-tog" style="background:'+tbg+';color:'+tc+'" onclick="toggleTimer(\''+wrapId+'\')">'+tlbl+'</button>';
+    html+='<button class="btn-rst" style="border:2px solid '+st.accent+'44;color:'+st.accent+'" onclick="resetTimer(\''+wrapId+'\')">🔄</button>';
+    html+='</div>';
+  }
+  html+='</div>';
+  wrap.innerHTML=html;
+
+  if(st.finished && afterFn) afterFn();
+}
+
+function toggleTimer(wrapId){
+  var st=wrapId==="lip-timer"?lipState:tongState;
+  if(st.running){
+    st.saved=st.elapsed; st.running=false;
+    if(st.raf)cancelAnimationFrame(st.raf);
+    renderTimer(st,wrapId,null);
+  } else {
+    st.running=true;
+    st.startTs=performance.now()-st.saved*1000;
+    tickTimer(st,wrapId);
+  }
+}
+
+function resetTimer(wrapId){
+  var st=wrapId==="lip-timer"?lipState:tongState;
+  if(st.raf)cancelAnimationFrame(st.raf);
+  st.elapsed=0; st.running=false; st.finished=false; st.saved=0;
+  renderTimer(st,wrapId,null);
+}
+
+function tickTimer(st,wrapId){
+  var total=totalTime(st);
+  var e=Math.floor((performance.now()-st.startTs)/1000);
+  if(e>=total){
+    st.elapsed=total; st.running=false; st.finished=true;
+    renderTimer(st,wrapId,st.onDone);
+  } else {
+    st.elapsed=e;
+    renderTimer(st,wrapId,null);
+    st.raf=requestAnimationFrame(function(){tickTimer(st,wrapId);});
+  }
+}
+
+// リップカード
+function renderLip(){
+  var el=document.getElementById("c-lip"); if(!el)return;
+  var r=todayRec().lip;
+  var col="#ff6b9d";
+  if(r&&r.done){
+    el.innerHTML='<div class="card" style="background:#f6fff6;border:2px solid #a8e6a8">'+
+      '<div class="badge">✅ 完了！</div>'+
+      '<div class="c-head"><span class="c-ico">💪</span><div>'+
+      '<div class="c-name" style="color:'+col+'">リットレメーター</div>'+
+      '<div class="c-desc">くちびるの力を鍛える · 3分間</div></div></div>'+
+      '<div class="done-box">⏰ 完了時刻：<strong>'+r.time+'</strong><br>'+
+      '<span style="display:block;margin-top:4px">📊 計測値：<strong style="color:'+col+';font-size:18px">'+r.measure+' kg</strong></span>'+
       '<button class="redo" onclick="clearRec(\'lip\')">やり直す</button></div></div>';
     return;
   }
-
-  el.innerHTML = '<div class="card" style="background:#fff0f5;border:2px solid '+col+'44">' +
-    '<div class="c-head"><span class="c-ico">💪</span><div>' +
-    '<div class="c-name" style="color:'+col+'">リットレメーター</div>' +
-    '<div class="c-desc">くちびるの力を鍛える · 3分間</div></div></div>' +
-    '<div id="lip-body">' +
-    '<button class="btn-start" style="background:linear-gradient(135deg,'+col+','+col+'cc);box-shadow:0 4px 14px '+col+'55" onclick="startLip()">▶ トレーニング開始！</button>' +
-    '</div></div>';
+  el.innerHTML='<div class="card" style="background:#fff0f5;border:2px solid '+col+'44">'+
+    '<div class="c-head"><span class="c-ico">💪</span><div>'+
+    '<div class="c-name" style="color:'+col+'">リットレメーター</div>'+
+    '<div class="c-desc">くちびるの力を鍛える · 3分間</div></div></div>'+
+    '<button class="btn-start" style="background:linear-gradient(135deg,'+col+','+col+'cc)" onclick="startLip()">▶ トレーニング開始！</button>'+
+    '</div>';
 }
 
-function startLip() {
-  var body = document.getElementById("lip-body");
-  if (!body) return;
-  var col = "#ff6b9d";
-  var wrap = document.createElement("div");
-  body.innerHTML = "";
-  body.appendChild(wrap);
-
-  new GuidedTimer(LSEQ, col, function() {
-    var mbox = document.createElement("div");
-    mbox.className = "mbox";
-    mbox.innerHTML = '<div class="mbox-title">🎉 お疲れさま！計測値を入力してね</div>' +
-      '<div class="mrow"><input class="minput" type="number" step="0.1" min="0" id="lip-m" placeholder="例: 0.8"/><span class="munit">kg</span></div>' +
-      '<button class="btn-save" id="lip-sv" style="background:#ddd" disabled onclick="saveLip()">✅ 記録する！</button>';
-    body.appendChild(mbox);
-    document.getElementById("lip-m").oninput = function() {
-      var sv = document.getElementById("lip-sv");
-      if (this.value) { sv.style.background="#4caf50"; sv.style.boxShadow="0 4px 12px rgba(76,175,80,.4)"; sv.disabled=false; }
-      else { sv.style.background="#ddd"; sv.style.boxShadow="none"; sv.disabled=true; }
+function startLip(){
+  var el=document.getElementById("c-lip"); if(!el)return;
+  var col="#ff6b9d";
+  el.innerHTML='<div class="card" style="background:#fff0f5;border:2px solid '+col+'44">'+
+    '<div class="c-head"><span class="c-ico">💪</span><div>'+
+    '<div class="c-name" style="color:'+col+'">リットレメーター</div>'+
+    '<div class="c-desc">くちびるの力を鍛える · 3分間</div></div></div>'+
+    '<div id="lip-timer"></div>'+
+    '<div id="lip-after"></div>'+
+    '</div>';
+  initTimer(lipState,LSEQ,col,function(){
+    document.getElementById("lip-after").innerHTML=
+      '<div class="mbox">'+
+      '<div class="mbox-title">🎉 お疲れさま！計測値を入力してね</div>'+
+      '<div class="mrow"><input class="minput" type="number" step="0.1" min="0" id="lip-m" placeholder="例: 0.8"/><span class="munit">kg</span></div>'+
+      '<button class="btn-save" id="lip-sv" style="background:#ddd" onclick="saveLip()">✅ 記録する！</button>'+
+      '</div>';
+    document.getElementById("lip-m").oninput=function(){
+      var sv=document.getElementById("lip-sv");
+      sv.style.background=this.value?"#4caf50":"#ddd";
     };
   });
+  renderTimer(lipState,"lip-timer",null);
 }
 
-function saveLip() {
-  var v = document.getElementById("lip-m");
-  if (!v || !v.value) return;
-  setTodayRec("lip", {done:true, measure:v.value, time:new Date().toTimeString().slice(0,5)});
+function saveLip(){
+  var v=document.getElementById("lip-m"); if(!v||!v.value)return;
+  setTodayRec("lip",{done:true,measure:v.value,time:new Date().toTimeString().slice(0,5)});
   renderToday();
 }
 
-// ===== アゲローくんカード =====
-function renderTongue() {
-  var el = document.getElementById("c-tongue");
-  if (!el) return;
-  var r = todayRec().tongue;
-  var col = "#ff9f43";
-
-  if (r && r.done) {
-    el.innerHTML = '<div class="card" style="background:#f6fff6;border:2px solid #a8e6a8">' +
-      '<div class="badge">✅ 完了！</div>' +
-      '<div class="c-head"><span class="c-ico">👅</span><div>' +
-      '<div class="c-name" style="color:'+col+'">アゲローくん</div>' +
-      '<div class="c-desc">舌の力を鍛える · 3分間</div></div></div>' +
-      '<div class="done-box">⏰ 完了時刻：<strong>'+r.time+'</strong>' +
+// アゲローカード
+function renderTongue(){
+  var el=document.getElementById("c-tongue"); if(!el)return;
+  var r=todayRec().tongue;
+  var col="#ff9f43";
+  if(r&&r.done){
+    el.innerHTML='<div class="card" style="background:#f6fff6;border:2px solid #a8e6a8">'+
+      '<div class="badge">✅ 完了！</div>'+
+      '<div class="c-head"><span class="c-ico">👅</span><div>'+
+      '<div class="c-name" style="color:'+col+'">アゲローくん</div>'+
+      '<div class="c-desc">舌の力を鍛える · 3分間</div></div></div>'+
+      '<div class="done-box">⏰ 完了時刻：<strong>'+r.time+'</strong>'+
       '<button class="redo" onclick="clearRec(\'tongue\')" style="display:block;margin-top:8px">やり直す</button></div></div>';
     return;
   }
-
-  el.innerHTML = '<div class="card" style="background:#fffaf0;border:2px solid '+col+'44">' +
-    '<div class="c-head"><span class="c-ico">👅</span><div>' +
-    '<div class="c-name" style="color:'+col+'">アゲローくん</div>' +
-    '<div class="c-desc">舌の力を鍛える · 3分間</div></div></div>' +
-    '<div id="tongue-body">' +
-    '<button class="btn-start" style="background:linear-gradient(135deg,'+col+','+col+'cc);box-shadow:0 4px 14px '+col+'55" onclick="startTongue()">▶ トレーニング開始！</button>' +
-    '</div></div>';
+  el.innerHTML='<div class="card" style="background:#fffaf0;border:2px solid '+col+'44">'+
+    '<div class="c-head"><span class="c-ico">👅</span><div>'+
+    '<div class="c-name" style="color:'+col+'">アゲローくん</div>'+
+    '<div class="c-desc">舌の力を鍛える · 3分間</div></div></div>'+
+    '<button class="btn-start" style="background:linear-gradient(135deg,'+col+','+col+'cc)" onclick="startTongue()">▶ トレーニング開始！</button>'+
+    '</div>';
 }
 
-function startTongue() {
-  var body = document.getElementById("tongue-body");
-  if (!body) return;
-  var col = "#ff9f43";
-  var wrap = document.createElement("div");
-  body.innerHTML = "";
-  body.appendChild(wrap);
-
-  new GuidedTimer(TSEQ, col, function() {
-    var btn = document.createElement("button");
-    btn.className = "btn-save";
-    btn.style.background = "#4caf50";
-    btn.style.boxShadow = "0 4px 12px rgba(76,175,80,.4)";
-    btn.textContent = "✅ きょうの記録をつける！";
-    btn.onclick = saveTongue;
-    body.appendChild(btn);
+function startTongue(){
+  var el=document.getElementById("c-tongue"); if(!el)return;
+  var col="#ff9f43";
+  el.innerHTML='<div class="card" style="background:#fffaf0;border:2px solid '+col+'44">'+
+    '<div class="c-head"><span class="c-ico">👅</span><div>'+
+    '<div class="c-name" style="color:'+col+'">アゲローくん</div>'+
+    '<div class="c-desc">舌の力を鍛える · 3分間</div></div></div>'+
+    '<div id="tong-timer"></div>'+
+    '<div id="tong-after"></div>'+
+    '</div>';
+  initTimer(tongState,TSEQ,col,function(){
+    document.getElementById("tong-after").innerHTML=
+      '<button class="btn-save" style="background:#4caf50;box-shadow:0 4px 12px rgba(76,175,80,.4)" onclick="saveTongue()">✅ きょうの記録をつける！</button>';
   });
+  renderTimer(tongState,"tong-timer",null);
 }
 
-function saveTongue() {
-  setTodayRec("tongue", {done:true, time:new Date().toTimeString().slice(0,5)});
+function saveTongue(){
+  setTodayRec("tongue",{done:true,time:new Date().toTimeString().slice(0,5)});
   renderToday();
 }
 
-function clearRec(key) {
-  if (rec[today()]) { delete rec[today()][key]; save(); }
-  renderToday();
+function clearRec(k){
+  if(rec[todayStr()])delete rec[todayStr()][k];
+  save(); renderToday();
 }
 
-// ===== きょうタブ全体 =====
-function renderToday() {
+function renderToday(){
   updateHeader();
-  var r = todayRec();
-  var cnt = (r.lip&&r.lip.done?1:0)+(r.tongue&&r.tongue.done?1:0);
-  var el = document.getElementById("tab-today");
-  el.innerHTML = "";
-
-  if (cnt===2) {
-    var b = document.createElement("div");
-    b.id = "done-banner";
-    b.innerHTML = '<div style="font-size:38px">🎉</div>' +
-      '<div style="font-size:18px;font-weight:800;margin-top:4px">きょうのトレーニング完了！</div>' +
-      '<div style="font-size:13px;opacity:.9;margin-top:4px">えらい！きれいな歯並びに近づいてるよ💪</div>';
+  var r=todayRec();
+  var cnt=(r.lip&&r.lip.done?1:0)+(r.tongue&&r.tongue.done?1:0);
+  var el=document.getElementById("tab-today");
+  el.innerHTML="";
+  if(cnt===2){
+    var b=document.createElement("div");
+    b.id="done-banner";
+    b.innerHTML='<div style="font-size:38px">🎉</div><div style="font-size:18px;font-weight:800;margin-top:4px">きょうのトレーニング完了！</div><div style="font-size:13px;opacity:.9;margin-top:4px">えらい！きれいな歯並びに近づいてるよ💪</div>';
     el.appendChild(b);
   }
-
-  var lc = document.createElement("div"); lc.id="c-lip";
-  var tc = document.createElement("div"); tc.id="c-tongue";
-  el.appendChild(lc);
-  el.appendChild(tc);
-  renderLip();
-  renderTongue();
+  var lc=document.createElement("div"); lc.id="c-lip";
+  var tc=document.createElement("div"); tc.id="c-tongue";
+  el.appendChild(lc); el.appendChild(tc);
+  renderLip(); renderTongue();
 }
 
-// ===== 履歴 =====
-function renderHistory() {
-  var el = document.getElementById("tab-history");
-  el.innerHTML = "";
-  var days = Object.keys(rec).sort(function(a,b){return b<a?-1:1;}).slice(0,30);
-  if (!days.length) {
-    el.innerHTML = '<div class="empty">まだ記録がないよ😊<br>トレーニングしたら記録してね！</div>';
-    return;
-  }
-  days.forEach(function(day) {
-    var dr = rec[day]||{};
-    var all = dr.lip&&dr.lip.done && dr.tongue&&dr.tongue.done;
-    var html = '<div class="hcard" style="border:2px solid '+(all?"#a8e6a8":"#ede0ff")+'">' +
-      '<div><span class="hdate">📅 '+day.replace(/-/g,"/")+'</span>' +
-      (all?'<span class="hall">全完了⭐</span>':'')+'</div>';
-    [
-      {label:"アゲローくん",  em:"👅", r:dr.tongue, col:"#ff9f43"},
-      {label:"リットレメーター",em:"💪",r:dr.lip,   col:"#ff6b9d", unit:"kg"}
-    ].forEach(function(x) {
-      html += '<div class="hrow" style="background:'+(x.r&&x.r.done?"#f6fff6":"#fff5f5")+'">' +
-        '<span style="font-size:18px">'+x.em+'</span>' +
-        '<div style="flex:1;font-weight:700;font-size:12px;color:#555">'+x.label+
-        (x.r&&x.r.measure?'<span style="margin-left:6px;color:'+x.col+';font-weight:800;font-size:13px">'+x.r.measure+(x.unit||"")+'</span>':'')+
-        '</div><span style="font-size:16px">'+(x.r&&x.r.done?"✅":"❌")+'</span></div>';
+function renderHistory(){
+  var el=document.getElementById("tab-history"); el.innerHTML="";
+  var days=Object.keys(rec).sort(function(a,b){return b>a?1:-1;}).slice(0,30);
+  if(!days.length){el.innerHTML='<div class="empty">まだ記録がないよ😊<br>トレーニングしたら記録してね！</div>';return;}
+  days.forEach(function(day){
+    var dr=rec[day]||{};
+    var all=dr.lip&&dr.lip.done&&dr.tongue&&dr.tongue.done;
+    var h='<div class="hcard" style="border:2px solid '+(all?"#a8e6a8":"#ede0ff")+'">';
+    h+='<div><span class="hdate">📅 '+day.replace(/-/g,"/")+'</span>'+(all?'<span class="hall">全完了⭐</span>':'')+'</div>';
+    [{label:"アゲローくん",em:"👅",r:dr.tongue,col:"#ff9f43"},
+     {label:"リットレメーター",em:"💪",r:dr.lip,col:"#ff6b9d",unit:"kg"}].forEach(function(x){
+      h+='<div class="hrow" style="background:'+(x.r&&x.r.done?"#f6fff6":"#fff5f5")+'">';
+      h+='<span style="font-size:18px">'+x.em+'</span>';
+      h+='<div style="flex:1;font-weight:700;font-size:12px;color:#555">'+x.label;
+      if(x.r&&x.r.measure)h+='<span style="margin-left:6px;color:'+x.col+';font-weight:800;font-size:13px">'+x.r.measure+(x.unit||"")+'</span>';
+      h+='</div><span style="font-size:16px">'+(x.r&&x.r.done?"✅":"❌")+'</span></div>';
     });
-    html += '</div>';
-    el.innerHTML += html;
+    h+='</div>';
+    el.innerHTML+=h;
   });
 }
 
-// ===== 成績 =====
-function renderStats() {
-  var el = document.getElementById("tab-stats");
-  el.innerHTML = "";
-  var days = Object.keys(rec);
-  var perfect = days.filter(function(d){return rec[d].lip&&rec[d].lip.done&&rec[d].tongue&&rec[d].tongue.done;}).length;
-  var ms = days.map(function(d){return parseFloat((rec[d].lip||{}).measure);}).filter(function(v){return !isNaN(v);});
-  var maxL = ms.length ? Math.max.apply(null,ms) : null;
-  var latL = ms.length ? ms[ms.length-1] : null;
-  var sorted = days.slice().sort(function(a,b){return b<a?-1:1;});
+function renderStats(){
+  var el=document.getElementById("tab-stats"); el.innerHTML="";
+  var days=Object.keys(rec);
+  var perfect=days.filter(function(d){return rec[d].lip&&rec[d].lip.done&&rec[d].tongue&&rec[d].tongue.done;}).length;
+  var ms=days.map(function(d){return parseFloat((rec[d].lip||{}).measure);}).filter(function(v){return !isNaN(v);});
+  var maxL=ms.length?Math.max.apply(null,ms):null;
+  var latL=ms.length?ms[ms.length-1]:null;
+  var sorted=days.slice().sort(function(a,b){return b>a?1:-1;});
   var streak=0;
-  for (var i=0;i<sorted.length;i++) {
-    var dr=rec[sorted[i]];
-    if (dr.lip&&dr.lip.done&&dr.tongue&&dr.tongue.done) streak++; else break;
-  }
+  for(var i=0;i<sorted.length;i++){var dr=rec[sorted[i]];if(dr.lip&&dr.lip.done&&dr.tongue&&dr.tongue.done)streak++;else break;}
   var stats=[
     {em:"📅",val:days.length+"日",lbl:"記録した日数"},
-    {em:"⭐",val:perfect+"日",    lbl:"全完了の日"},
-    {em:"🔥",val:streak+"日",     lbl:"連続完了"},
+    {em:"⭐",val:perfect+"日",lbl:"全完了の日"},
+    {em:"🔥",val:streak+"日",lbl:"連続完了"},
     {em:"🏆",val:maxL?maxL+"kg":"-",lbl:"リットレ最高値"},
     {em:"📊",val:latL?latL+"kg":"-",lbl:"リットレ最新値"},
   ];
-  var html='<div class="sgrid">';
-  stats.forEach(function(s){
-    html+='<div class="scard"><div class="s-ico">'+s.em+'</div><div class="s-val">'+s.val+'</div><div class="s-lbl">'+s.lbl+'</div></div>';
-  });
-  html+='</div>';
-  el.innerHTML=html;
+  var h='<div class="sgrid">';
+  stats.forEach(function(s){h+='<div class="scard"><div class="s-ico">'+s.em+'</div><div class="s-val">'+s.val+'</div><div class="s-lbl">'+s.lbl+'</div></div>';});
+  h+='</div>';
+  el.innerHTML=h;
 }
 
-// ===== 起動 =====
 renderToday();
 </script>
 </body>
