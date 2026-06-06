@@ -191,33 +191,32 @@ function makeLSeq(){
 }
 
 // よりシンプルに作り直す
+// あげろーくん: フェーズ変化点のみエントリ（5秒あげて→5秒おろして）
+// カウント1-5はelapsedから計算して表示
 function buildTSeq(){
   var s=[];
-  var phase="up",cnt=1;
-  for(var sec=0;sec<180;sec++){
-    var spk=null;
-    if(cnt===1){spk=(phase==="up")?"あげて":"おろして";}
-    var em=phase==="up"?"👅":"😌";
-    var col=phase==="up"?"#ff9f43":"#4caf50";
-    var lbl=phase==="up"?"あげて":"おろして";
-    s.push({at:sec,speak:spk,phase:phase,label:lbl,em:em,col:col,count:cnt});
-    cnt++;
-    if(cnt>5){cnt=1;phase=phase==="up"?"down":"up";}
+  var t=0;
+  while(t<180){
+    s.push({at:t, speak:"あげて", phase:"up",   label:"あげて",   em:"👅", col:"#ff9f43"});
+    t+=5;
+    if(t>=180) break;
+    s.push({at:t, speak:"おろして", phase:"down", label:"おろして", em:"😌", col:"#4caf50"});
+    t+=5;
   }
-  s.push({at:180,speak:"おつかれさま！よくがんばったね",phase:"done",label:"完了🎉",em:"🌟",col:"#c44dff",count:null});
+  s.push({at:180, speak:"おつかれさま！よくがんばったね", phase:"done", label:"完了🎉", em:"🌟", col:"#c44dff"});
   return s;
 }
 
+// リットレメーター: 方向変化点のみエントリ（5秒ごと）
+// カウント1-5はelapsedから計算
 function buildLSeq(){
-  var s=[], di=0, cnt=1;
-  for(var sec=0;sec<180;sec++){
+  var s=[], t=0, di=0;
+  while(t<180){
     var d=DIRS[di%5];
-    var spk=(cnt===1)?d.label:null;
-    s.push({at:sec,speak:spk,phase:"hold",label:d.label,em:d.em,col:d.col,count:cnt});
-    cnt++;
-    if(cnt>5){cnt=1;di++;}
+    s.push({at:t, speak:d.label, phase:"hold", label:d.label, em:d.em, col:d.col});
+    t+=5; di++;
   }
-  s.push({at:180,speak:"おつかれさま！計測してね",phase:"done",label:"完了🎉",em:"🎉",col:"#4caf50",count:null});
+  s.push({at:180, speak:"おつかれさま！計測してね", phase:"done", label:"完了🎉", em:"🎉", col:"#4caf50"});
   return s;
 }
 
@@ -265,6 +264,13 @@ function Timer(seq, accentCol, guideId, svgId, timeId, togId, rstId, onFinish){
     var isDone=evt.phase==="done";
     var isDown=evt.phase==="down";
 
+    // カウント計算（フェーズ開始秒からの経過で1-5）
+    var count=null;
+    if(!isDone){
+      var secInPhase=self.elapsed-evt.at;
+      count=(secInPhase%5)+1;
+    }
+
     // ガイドボード
     var bg=isDone?"#e8f5e9":isDown?"#f0fff4":col+"20";
     var bd=isDone?"#a8e6a8":isDown?"#a8e6a855":col+"66";
@@ -273,7 +279,7 @@ function Timer(seq, accentCol, guideId, svgId, timeId, togId, rstId, onFinish){
     self.guideEl.innerHTML=
       '<div class="gb-emoji">'+evt.em+'</div>'+
       '<div class="gb-label" style="color:'+col+'">'+evt.label+'</div>'+
-      (evt.count!==null?'<div class="gb-count" style="color:'+col+'">'+evt.count+'</div>':'');
+      (count!==null?'<div class="gb-count" style="color:'+col+'">'+count+'</div>':'');
 
     // タイマー表示
     var trem=TOTAL-self.elapsed;
