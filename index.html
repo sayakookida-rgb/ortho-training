@@ -4,73 +4,88 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 <meta name="apple-mobile-web-app-capable" content="yes"/>
-<meta name="apple-mobile-web-app-title" content="矯正トレーニング"/>
-<title>🦷 矯正トレーニング</title>
+<meta name="apple-mobile-web-app-title" content="みおりのトレーニング"/>
+<title>🦷 みおりのトレーニング</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
-html,body{height:100%;background:#f3e8ff;}
+html,body{height:100%;background:#fce4ff;}
 body{font-family:-apple-system,sans-serif;overscroll-behavior:none;}
 button{font-family:-apple-system,sans-serif;-webkit-appearance:none;cursor:pointer;}
 input{font-family:-apple-system,sans-serif;}
 #app{max-width:500px;margin:0 auto;min-height:100%;display:flex;flex-direction:column;}
-#hdr{background:linear-gradient(135deg,#7b2ff7,#b06eff);padding:24px 18px 18px;color:#fff;}
-#hdr-sub{font-size:12px;opacity:.8;margin-bottom:2px;}
-#hdr-title{font-size:24px;font-weight:800;}
+#hdr{background:linear-gradient(135deg,#c44dff,#ff6eb4);padding:24px 18px 18px;color:#fff;}
+#hdr-sub{font-size:12px;opacity:.85;margin-bottom:2px;}
+#hdr-title{font-size:24px;font-weight:900;}
 #prog-box{margin-top:10px;background:rgba(255,255,255,.2);border-radius:12px;padding:10px 14px;}
 #prog-date{font-size:12px;opacity:.85;margin-bottom:5px;}
 #prog-row{display:flex;align-items:center;gap:10px;}
 #prog-bg{flex:1;height:9px;background:rgba(255,255,255,.3);border-radius:9px;overflow:hidden;}
-#prog-fill{height:100%;background:#fff;border-radius:9px;width:0%;transition:width .4s;}
+#prog-fill{height:100%;background:#fff;border-radius:9px;width:0%;transition:width .5s;}
 #prog-txt{font-size:14px;font-weight:800;}
-#tabs{display:flex;background:#fff;border-bottom:2px solid #ede0ff;position:sticky;top:0;z-index:10;}
-.tb{flex:1;padding:13px 0;border:none;background:none;font-size:13px;font-weight:600;color:#bbb;border-bottom:3px solid transparent;}
-.tb.on{font-weight:800;color:#7b2ff7;border-bottom:3px solid #7b2ff7;}
+#tabs{display:flex;background:#fff;border-bottom:2px solid #f5d0ff;position:sticky;top:0;z-index:10;}
+.tb{flex:1;padding:13px 0;border:none;background:none;font-size:13px;font-weight:600;color:#ccc;border-bottom:3px solid transparent;}
+.tb.on{font-weight:800;color:#c44dff;border-bottom:3px solid #c44dff;}
 #content{flex:1;padding:16px 14px 50px;overflow-y:auto;}
 .panel{display:flex;flex-direction:column;gap:14px;}
-.card{border-radius:20px;padding:18px 16px;position:relative;box-shadow:0 3px 14px rgba(0,0,0,.08);}
-.c-head{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
-.c-ico{font-size:34px;line-height:1;}
+
+/* 注意カード */
+.notice-card{background:linear-gradient(135deg,#fff9e6,#fff3cd);border-radius:18px;padding:14px 16px;border:2px solid #ffd966;font-size:13px;color:#7a5800;line-height:1.7;}
+.notice-title{font-size:14px;font-weight:800;color:#e67e00;margin-bottom:6px;}
+
+/* カード */
+.card{border-radius:20px;padding:18px 16px;position:relative;box-shadow:0 3px 16px rgba(0,0,0,.08);}
+.c-head{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+.c-ico{font-size:32px;line-height:1;}
 .c-name{font-size:18px;font-weight:800;}
 .c-desc{font-size:12px;color:#999;margin-top:1px;}
+.c-goal{display:inline-block;background:#fff3cd;color:#e67e00;border-radius:8px;padding:2px 9px;font-size:11px;font-weight:700;margin-top:3px;}
 .badge{position:absolute;top:12px;right:12px;background:#4caf50;color:#fff;border-radius:20px;padding:3px 11px;font-size:11px;font-weight:700;}
-.done-box{background:#fff;border-radius:12px;padding:11px 13px;font-size:13px;color:#555;}
-.redo{margin-top:8px;padding:4px 12px;border-radius:16px;border:1px solid #ddd;background:#fff;color:#aaa;font-size:11px;cursor:pointer;}
-.btn-start{width:100%;padding:13px;border-radius:14px;border:none;color:#fff;font-size:15px;font-weight:800;cursor:pointer;}
-.btn-save{width:100%;padding:13px;border-radius:14px;border:none;color:#fff;font-size:15px;font-weight:800;margin-top:10px;cursor:pointer;}
-.guide{width:100%;border-radius:16px;padding:16px;text-align:center;min-height:100px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;}
-.g-emoji{font-size:40px;line-height:1;}
-.g-dir{font-size:28px;font-weight:900;letter-spacing:1px;}
-.g-msg{font-size:14px;font-weight:700;line-height:1.5;}
-.g-remain{font-size:12px;color:#aaa;margin-top:2px;}
-.circ-wrap{position:relative;width:120px;height:120px;flex-shrink:0;}
+.done-box{background:#fff;border-radius:12px;padding:11px 13px;font-size:13px;color:#555;line-height:1.8;}
+.redo{margin-top:8px;padding:5px 14px;border-radius:16px;border:1px solid #ddd;background:#fff;color:#aaa;font-size:12px;cursor:pointer;}
+.btn-start{width:100%;padding:13px;border-radius:14px;border:none;color:#fff;font-size:15px;font-weight:800;}
+.btn-save{width:100%;padding:13px;border-radius:14px;border:none;color:#fff;font-size:15px;font-weight:800;margin-top:10px;}
+
+/* タイマー本体 — 構造固定 */
+.tmr-wrap{display:flex;flex-direction:column;align-items:center;gap:12px;width:100%;}
+.guide-board{width:100%;border-radius:16px;padding:18px 12px;text-align:center;min-height:130px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;transition:background .25s,border .25s;}
+.gb-emoji{font-size:40px;line-height:1;}
+.gb-label{font-size:26px;font-weight:900;}
+.gb-count{font-size:70px;font-weight:900;line-height:1;}
+.circ-wrap{position:relative;width:120px;height:120px;}
 .circ-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
 .circ-time{font-size:24px;font-weight:900;color:#5a1fa0;}
 .circ-lbl{font-size:10px;color:#ccc;}
-.ctrl-row{display:flex;gap:8px;justify-content:center;}
-.btn-tog{padding:10px 26px;border-radius:50px;border:none;font-size:14px;font-weight:800;cursor:pointer;}
-.btn-rst{padding:10px 14px;border-radius:50px;background:#fff;font-size:14px;font-weight:700;cursor:pointer;}
+.ctrl-row{display:flex;gap:10px;justify-content:center;width:100%;}
+.btn-tog{flex:1;max-width:180px;padding:12px 0;border-radius:50px;border:none;font-size:14px;font-weight:800;}
+.btn-rst{padding:12px 18px;border-radius:50px;background:#fff;font-size:14px;font-weight:700;border:2px solid #ddd;color:#888;}
+
+/* 計測 */
 .mbox{background:#fff;border-radius:14px;padding:14px;margin-top:10px;}
 .mbox-title{font-size:13px;font-weight:700;color:#555;margin-bottom:8px;}
 .mrow{display:flex;align-items:center;gap:6px;margin-bottom:10px;}
-.minput{flex:1;padding:9px 12px;border-radius:10px;border:2px solid #ffc0d8;font-size:20px;font-weight:800;color:#ff6b9d;}
+.minput{flex:1;padding:9px 12px;border-radius:10px;border:2px solid #ffc0d8;font-size:22px;font-weight:800;color:#ff6b9d;}
 .munit{font-size:14px;font-weight:700;color:#888;}
-#done-banner{background:linear-gradient(135deg,#a8e6cf,#56ccf2);border-radius:18px;padding:18px;text-align:center;color:#fff;}
+
+/* 完了バナー */
+#done-banner{background:linear-gradient(135deg,#c44dff,#ff6eb4);border-radius:18px;padding:20px;text-align:center;color:#fff;}
+
+/* 履歴 */
 .hcard{background:#fff;border-radius:16px;padding:14px 16px;box-shadow:0 2px 8px rgba(0,0,0,.06);margin-bottom:10px;}
-.hdate{font-weight:800;color:#5a1fa0;font-size:14px;}
-.hall{font-size:11px;background:#e8f5e9;color:#4caf50;padding:2px 9px;border-radius:16px;font-weight:700;float:right;}
+.hdate{font-weight:800;color:#c44dff;font-size:14px;}
+.hall{font-size:11px;background:#f0e6ff;color:#c44dff;padding:2px 9px;border-radius:16px;font-weight:700;float:right;}
 .hrow{display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:10px;margin-top:6px;}
 .sgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-.scard{background:#fff;border-radius:16px;padding:16px 12px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.06);border:2px solid #ede0ff;}
-.s-ico{font-size:28px;}.s-val{font-size:20px;font-weight:800;color:#5a1fa0;}.s-lbl{font-size:11px;color:#aaa;margin-top:1px;}
+.scard{background:#fff;border-radius:16px;padding:16px 12px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.06);border:2px solid #f5d0ff;}
+.s-ico{font-size:28px;}.s-val{font-size:20px;font-weight:800;color:#c44dff;}.s-lbl{font-size:11px;color:#aaa;margin-top:1px;}
 .empty{text-align:center;padding:40px;color:#ccc;font-size:14px;}
-.timer-area{display:flex;flex-direction:column;align-items:center;gap:12px;width:100%;}
+.hidden{display:none!important;}
 </style>
 </head>
 <body>
 <div id="app">
   <div id="hdr">
     <div id="hdr-sub">🦷 歯列矯正トレーニング</div>
-    <div id="hdr-title">毎日がんばろう！</div>
+    <div id="hdr-title">みおりちゃん、がんばろう！💕</div>
     <div id="prog-box">
       <div id="prog-date"></div>
       <div id="prog-row">
@@ -85,84 +100,261 @@ input{font-family:-apple-system,sans-serif;}
     <button class="tb"    onclick="showTab('stats',this)">📊 せいせき</button>
   </div>
   <div id="content">
-    <div id="tab-today"   class="panel"></div>
+    <div id="tab-today" class="panel"></div>
     <div id="tab-history" class="panel" style="display:none"></div>
-    <div id="tab-stats"   class="panel" style="display:none"></div>
+    <div id="tab-stats"  class="panel" style="display:none"></div>
   </div>
 </div>
 
 <script>
-// ===== 音声 =====
-var audioCtx = null;
-function getAudioCtx(){
-  if(!audioCtx) audioCtx = new (window.AudioContext||window.webkitAudioContext)();
-  return audioCtx;
-}
-function beep(freq, dur, vol){
-  try{
-    var ctx = getAudioCtx();
-    var osc = ctx.createOscillator();
-    var gain = ctx.createGain();
-    osc.connect(gain); gain.connect(ctx.destination);
-    osc.frequency.value = freq||880;
-    osc.type = "sine";
-    gain.gain.setValueAtTime(vol||0.3, ctx.currentTime);
-    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime+(dur||0.15));
-    osc.start(ctx.currentTime);
-    osc.stop(ctx.currentTime+(dur||0.15));
-  }catch(e){}
-}
-function beepSwitch(){ beep(880, 0.12, 0.3); }
-function beepDone(){ beep(880,0.12,0.3); setTimeout(function(){beep(1100,0.2,0.35);},180); }
+/* ========== ストレージ ========== */
+var SKEY="miori-ortho-v2";
+var rec={};
+try{rec=JSON.parse(localStorage.getItem(SKEY)||"{}");}catch(e){}
+function save(){try{localStorage.setItem(SKEY,JSON.stringify(rec));}catch(e){}}
+function todayStr(){var d=new Date();return d.getFullYear()+"-"+p2(d.getMonth()+1)+"-"+p2(d.getDate());}
+function p2(n){return String(n).padStart(2,"0");}
+function todayRec(){return rec[todayStr()]||{};}
+function setTR(k,v){if(!rec[todayStr()])rec[todayStr()]={};rec[todayStr()][k]=v;save();}
 
-var SKEY = "ortho2";
-var rec = {};
-try { rec = JSON.parse(localStorage.getItem(SKEY)||"{}"); } catch(e){}
-function save(){ try{ localStorage.setItem(SKEY,JSON.stringify(rec)); }catch(e){} }
-function todayStr(){
-  var d=new Date();
-  return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
-}
-function todayRec(){ return rec[todayStr()]||{}; }
-function setTodayRec(k,v){ if(!rec[todayStr()])rec[todayStr()]={};rec[todayStr()][k]=v;save(); }
+/* ========== 音声 ========== */
+var AC=null;
+function getAC(){if(!AC)AC=new(window.AudioContext||window.webkitAudioContext)();return AC;}
+function beep(f,d,v){try{var c=getAC(),o=c.createOscillator(),g=c.createGain();o.connect(g);g.connect(c.destination);o.frequency.value=f;o.type="sine";g.gain.setValueAtTime(v||0.2,c.currentTime);g.gain.exponentialRampToValueAtTime(0.001,c.currentTime+d);o.start();o.stop(c.currentTime+d);}catch(e){}}
+function beepDone(){beep(880,.12,.3);setTimeout(function(){beep(1100,.2,.35);},200);}
+function beepSwitch(){beep(750,.08,.15);}
+function speak(t){if(!window.speechSynthesis)return;speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang="ja-JP";u.rate=1.0;u.pitch=1.1;speechSynthesis.speak(u);}
 
-// シーケンス
+/* ========== シーケンス ========== */
+// あげろーくん: あげて5秒→おろして5秒 繰り返し
+// 各フェーズ内でcount 1-5を1秒ごとに表示（音声なし）
+// speak は フェーズ切替時のみ
 function makeTSeq(){
-  var s=[{type:"tip",dur:3,msg:"口をリラックスして<br>準備してね",em:"😊"}];
-  for(var i=0;i<20;i++){
-    s.push({type:"up",dur:5,msg:"べろを上あごに<br>ぴったりつけて！",em:"👅"});
-    s.push({type:"rest",dur:3,msg:"ストップ！<br>リラックス〜",em:"😌"});
+  // [{at, speak, phase, label, em, col, count}]
+  var s=[], t=0;
+  // 最初だけ無音で開始
+  s.push({at:0,speak:null,phase:"up",label:"あげて",em:"👅",col:"#ff9f43",count:1});
+  // 以後1秒ごとにcount更新
+  var phase="up", cnt=1;
+  for(var sec=0;sec<180;sec++){
+    var spk=null;
+    if(sec===0){spk="あげて";}
+    else if(cnt>5){
+      // フェーズ切替
+      if(phase==="up"){phase="down";spk="おろして";}
+      else{phase="up";spk="あげて";}
+      cnt=1;
+    }
+    var em=phase==="up"?"👅":"😌";
+    var col=phase==="up"?"#ff9f43":"#4caf50";
+    var lbl=phase==="up"?"あげて":"おろして";
+    s.push({at:sec,speak:spk,phase:phase,label:lbl,em:em,col:col,count:cnt});
+    cnt++;
   }
-  s.push({type:"tip",dur:17,msg:"おつかれさま！<br>よくがんばったね🎉",em:"🌟"});
+  s.push({at:180,speak:"おつかれさま！よくがんばったね",phase:"done",label:"完了🎉",em:"🌟",col:"#c44dff",count:null});
   return s;
 }
+
+// リットレメーター: 方向4秒ずつ 休憩なし
 var DIRS=[
-  {label:"まえ",em:"⬆️",msg:"まっすぐ前に！<br>キープ！！",col:"#ff6b9d"},
-  {label:"みぎ",em:"➡️",msg:"右に引っ張って！<br>キープ！！",col:"#ff9f43"},
-  {label:"ひだり",em:"⬅️",msg:"左に引っ張って！<br>キープ！！",col:"#54a0ff"},
-  {label:"うえ",em:"🔼",msg:"上に引っ張って！<br>キープ！！",col:"#5f27cd"},
-  {label:"した",em:"🔽",msg:"下に引っ張って！<br>キープ！！",col:"#00d2d3"}
+  {label:"まえ",em:"⬆️",col:"#ff6b9d"},
+  {label:"みぎ",em:"➡️",col:"#ff9f43"},
+  {label:"ひだり",em:"⬅️",col:"#54a0ff"},
+  {label:"うえ",em:"🔼",col:"#9b59b6"},
+  {label:"した",em:"🔽",col:"#00b8b8"},
 ];
 function makeLSeq(){
-  var s=[{type:"tip",dur:3,msg:"リットレメーターを<br>くわえて準備！",em:"💪",col:"#ff6b9d"}];
-  var e=3,di=0;
-  while(e<163){
+  var s=[], di=0;
+  for(var sec=0;sec<180;sec++){
     var d=DIRS[di%5];
-    s.push({type:"hold",dur:10,msg:d.msg,em:d.em,label:d.label,col:d.col});
-    e+=10; if(e>=163)break;
-    s.push({type:"rest",dur:3,msg:"すこし休憩〜",em:"😮‍💨",col:"#aaa"});
-    e+=3; di++;
+    var posInDir=sec%(4); // 0-3
+    var cnt=posInDir+1;   // 1-4
+    // count 1-4を1-5に引き延ばす（4秒で1-4, 5番目は次の方向に切替）
+    // → 実際は4秒ごとに方向切替、count1-4表示
+    // カウント5は存在しないのでLIPは1-4、TはREQ1-5
+    // LIPも1-5にするため5秒サイクルに変更
+    s.push({at:sec,speak:null,phase:"hold",label:d.label,em:d.em,col:d.col,count:null,di:di%5});
   }
-  s.push({type:"tip",dur:17,msg:"おつかれさま！<br>計測値を入力してね📊",em:"🎉",col:"#4caf50"});
+  // 5秒サイクルで作り直す
+  s=[];di=0;
+  for(var sec=0;sec<180;sec++){
+    var d=DIRS[di%5];
+    var posInDir=sec%5;
+    var cnt=posInDir+1; // 1-5
+    var spk=(posInDir===0)?d.label:null;
+    if(posInDir===0&&sec>0){di++;d=DIRS[di%5];spk=d.label;cnt=1;}
+    if(posInDir===0&&sec===0){di=0;d=DIRS[0];spk=d.label;cnt=1;}
+    s.push({at:sec,speak:spk,phase:"hold",label:d.label,em:d.em,col:d.col,count:cnt,di:di%5});
+  }
+  s.push({at:180,speak:"おつかれさま！計測してね",phase:"done",label:"完了🎉",em:"🎉",col:"#4caf50",count:null});
   return s;
 }
-var TSEQ=makeTSeq(), LSEQ=makeLSeq();
 
-// タブ
+// よりシンプルに作り直す
+function buildTSeq(){
+  var s=[];
+  var phase="up",cnt=1;
+  for(var sec=0;sec<180;sec++){
+    var spk=null;
+    if(cnt===1){spk=(phase==="up")?"あげて":"おろして";}
+    var em=phase==="up"?"👅":"😌";
+    var col=phase==="up"?"#ff9f43":"#4caf50";
+    var lbl=phase==="up"?"あげて":"おろして";
+    s.push({at:sec,speak:spk,phase:phase,label:lbl,em:em,col:col,count:cnt});
+    cnt++;
+    if(cnt>5){cnt=1;phase=phase==="up"?"down":"up";}
+  }
+  s.push({at:180,speak:"おつかれさま！よくがんばったね",phase:"done",label:"完了🎉",em:"🌟",col:"#c44dff",count:null});
+  return s;
+}
+
+function buildLSeq(){
+  var s=[], di=0, cnt=1;
+  for(var sec=0;sec<180;sec++){
+    var d=DIRS[di%5];
+    var spk=(cnt===1)?d.label:null;
+    s.push({at:sec,speak:spk,phase:"hold",label:d.label,em:d.em,col:d.col,count:cnt});
+    cnt++;
+    if(cnt>5){cnt=1;di++;}
+  }
+  s.push({at:180,speak:"おつかれさま！計測してね",phase:"done",label:"完了🎉",em:"🎉",col:"#4caf50",count:null});
+  return s;
+}
+
+var TSEQ=buildTSeq(), LSEQ=buildLSeq(), TOTAL=180;
+
+/* ========== タイマークラス ========== */
+function Timer(seq, accentCol, guideId, svgId, timeId, togId, rstId, onFinish){
+  var self=this;
+  self.seq=seq; self.accent=accentCol;
+  self.elapsed=0; self.running=false; self.finished=false;
+  self.saved=0; self.startTs=0; self.raf=null; self.lastIdx=-1;
+  self.onFinish=onFinish;
+
+  // DOM参照（固定）
+  self.guideEl=document.getElementById(guideId);
+  self.svgProgressEl=document.getElementById(svgId);
+  self.timeEl=document.getElementById(timeId);
+  self.togBtn=document.getElementById(togId);
+  self.rstBtn=document.getElementById(rstId);
+
+  // ボタンイベント（一度だけ登録）
+  self.togBtn.addEventListener("click",function(){self.toggle();});
+  self.rstBtn.addEventListener("click",function(){self.reset();});
+
+  self.getEvt=function(){
+    var cur=self.seq[0];
+    for(var i=0;i<self.seq.length;i++){
+      if(self.seq[i].at<=self.elapsed)cur=self.seq[i];
+      else break;
+    }
+    return cur;
+  };
+  self.getIdx=function(){
+    var idx=0;
+    for(var i=0;i<self.seq.length;i++){
+      if(self.seq[i].at<=self.elapsed)idx=i;
+      else break;
+    }
+    return idx;
+  };
+
+  self.draw=function(){
+    var evt=self.getEvt();
+    var col=evt.col||self.accent;
+    var isDone=evt.phase==="done";
+    var isDown=evt.phase==="down";
+
+    // ガイドボード
+    var bg=isDone?"#e8f5e9":isDown?"#f0fff4":col+"20";
+    var bd=isDone?"#a8e6a8":isDown?"#a8e6a855":col+"66";
+    self.guideEl.style.background=bg;
+    self.guideEl.style.borderColor=bd;
+    self.guideEl.innerHTML=
+      '<div class="gb-emoji">'+evt.em+'</div>'+
+      '<div class="gb-label" style="color:'+col+'">'+evt.label+'</div>'+
+      (evt.count!==null?'<div class="gb-count" style="color:'+col+'">'+evt.count+'</div>':'');
+
+    // タイマー表示
+    var trem=TOTAL-self.elapsed;
+    var mins=Math.floor(trem/60), secs=trem%60;
+    var R=50,circ=2*Math.PI*R,pct=self.elapsed/TOTAL,off=circ*(1-pct);
+    var sc=self.finished?"#4caf50":self.accent;
+    self.svgProgressEl.setAttribute("stroke",sc);
+    self.svgProgressEl.setAttribute("stroke-dashoffset",off);
+    if(self.finished){
+      self.timeEl.innerHTML='<span style="font-size:34px">✅</span>';
+    } else {
+      self.timeEl.innerHTML='<span class="circ-time">'+mins+':'+p2(secs)+'</span><span class="circ-lbl">のこり</span>';
+    }
+
+    // トグルボタン
+    if(self.running){
+      self.togBtn.style.background="rgba(0,0,0,.07)";
+      self.togBtn.style.color="#555";
+      self.togBtn.textContent="⏸ 一時停止";
+    } else if(self.finished){
+      self.togBtn.style.background="#ccc";
+      self.togBtn.style.color="#fff";
+      self.togBtn.textContent="✅ 完了";
+    } else {
+      self.togBtn.style.background="linear-gradient(135deg,"+self.accent+","+self.accent+"cc)";
+      self.togBtn.style.color="#fff";
+      self.togBtn.textContent=self.elapsed===0?"▶ スタート":"▶ 再開";
+    }
+    self.togBtn.disabled=self.finished;
+  };
+
+  self.tick=function(){
+    var e=Math.floor((performance.now()-self.startTs)/1000);
+    if(e>=TOTAL){
+      self.elapsed=TOTAL; self.running=false; self.finished=true;
+      beepDone(); self.draw();
+      if(self.onFinish)self.onFinish();
+    } else {
+      self.elapsed=e;
+      var idx=self.getIdx();
+      if(idx!==self.lastIdx){
+        var evt=self.seq[idx];
+        if(evt.speak)speak(evt.speak);
+        if(self.lastIdx>=0)beepSwitch();
+        self.lastIdx=idx;
+      }
+      self.draw();
+      self.raf=requestAnimationFrame(function(){self.tick();});
+    }
+  };
+
+  self.toggle=function(){
+    if(self.finished)return;
+    try{getAC().resume();}catch(e){}
+    if(self.running){
+      self.saved=self.elapsed; self.running=false;
+      cancelAnimationFrame(self.raf); self.draw();
+    } else {
+      self.running=true;
+      self.startTs=performance.now()-self.saved*1000;
+      self.tick();
+    }
+  };
+
+  self.reset=function(){
+    cancelAnimationFrame(self.raf);
+    if(speechSynthesis)speechSynthesis.cancel();
+    self.elapsed=0; self.running=false; self.finished=false;
+    self.saved=0; self.lastIdx=-1;
+    self.draw();
+  };
+
+  self.draw(); // 初期描画
+}
+
+/* ========== タイマーインスタンス（起動時に生成） ========== */
+var LTimer=null, TTimer=null;
+
+/* ========== タブ ========== */
 function showTab(id,btn){
-  ["today","history","stats"].forEach(function(t){
-    document.getElementById("tab-"+t).style.display="none";
-  });
+  ["today","history","stats"].forEach(function(t){document.getElementById("tab-"+t).style.display="none";});
   document.getElementById("tab-"+id).style.display="flex";
   document.querySelectorAll(".tb").forEach(function(b){b.classList.remove("on");});
   btn.classList.add("on");
@@ -170,279 +362,206 @@ function showTab(id,btn){
   if(id==="stats")renderStats();
 }
 
-// ヘッダー
+/* ========== ヘッダー ========== */
 function updateHeader(){
   var r=todayRec();
   var cnt=(r.lip&&r.lip.done?1:0)+(r.tongue&&r.tongue.done?1:0);
   var d=new Date();
-  document.getElementById("prog-date").textContent=
-    "きょうの進捗 ("+d.getFullYear()+"/"+String(d.getMonth()+1).padStart(2,"0")+"/"+String(d.getDate()).padStart(2,"0")+")";
+  document.getElementById("prog-date").textContent="きょうの進捗 ("+d.getFullYear()+"/"+p2(d.getMonth()+1)+"/"+p2(d.getDate())+")";
   document.getElementById("prog-fill").style.width=(cnt/2*100)+"%";
   document.getElementById("prog-txt").textContent=cnt+"/2";
 }
 
-// タイマー状態
-var lipState   = {elapsed:0,running:false,finished:false,saved:0,startTs:0,raf:null,seq:null,accent:"",onDone:null,lastStep:-1};
-var tongState  = {elapsed:0,running:false,finished:false,saved:0,startTs:0,raf:null,seq:null,accent:"",onDone:null,lastStep:-1};
-
-function initTimer(st,seq,accent,onDone){
-  if(st.raf)cancelAnimationFrame(st.raf);
-  st.elapsed=0; st.running=false; st.finished=false; st.saved=0; st.lastStep=-1;
-  st.seq=seq; st.accent=accent; st.onDone=onDone;
-}
-
-function getStep(st){
-  var acc=0,seq=st.seq;
-  for(var i=0;i<seq.length;i++){
-    if(acc+seq[i].dur>st.elapsed)return{s:seq[i],se:st.elapsed-acc};
-    acc+=seq[i].dur;
-  }
-  var last=seq[seq.length-1];
-  return{s:last,se:last.dur};
-}
-
-function totalTime(st){
-  var t=0; st.seq.forEach(function(x){t+=x.dur;}); return t;
-}
-
-function renderTimer(st,wrapId,afterFn){
-  var wrap=document.getElementById(wrapId);
-  if(!wrap)return;
-  var total=totalTime(st);
-  var gs=getStep(st); var s=gs.s; var se=gs.se;
-  var srem=s.dur-se;
-  var trem=total-st.elapsed;
-  var mins=Math.floor(trem/60);
-  var secs=trem%60;
-  var pct=st.elapsed/total;
-  var R=50,circ=2*Math.PI*R;
-  var off=circ*(1-pct);
-  var bgc=s.col||st.accent;
-  var isRest=s.type==="rest";
-  var stroke=st.finished?"#4caf50":st.accent;
-
-  var html='<div class="timer-area">';
-  html+='<div class="guide" style="background:'+(isRest?"#f0fff4":bgc+"18")+';border:2.5px solid '+(isRest?"#a8e6a8":bgc+"55")+'">';
-  html+='<div class="g-emoji">'+s.em+'</div>';
-  if(s.label)html+='<div class="g-dir" style="color:'+bgc+'">'+s.label+'</div>';
-  html+='<div class="g-msg" style="color:'+(isRest?"#4caf50":"#444")+'">'+s.msg+'</div>';
-  if(s.type!=="tip")html+='<div class="g-remain">のこり '+srem+'秒</div>';
-  html+='</div>';
-
-  html+='<div class="circ-wrap"><svg width="120" height="120">';
-  html+='<circle cx="60" cy="60" r="'+R+'" fill="none" stroke="#ede0ff" stroke-width="9"/>';
-  html+='<circle cx="60" cy="60" r="'+R+'" fill="none" stroke="'+stroke+'" stroke-width="9" stroke-dasharray="'+circ+'" stroke-dashoffset="'+off+'" stroke-linecap="round" transform="rotate(-90 60 60)"/>';
-  html+='</svg><div class="circ-center">';
-  if(st.finished)html+='<span style="font-size:32px">✅</span>';
-  else html+='<span class="circ-time">'+mins+':'+String(secs).padStart(2,"0")+'</span><span class="circ-lbl">のこり</span>';
-  html+='</div></div>';
-
-  if(!st.finished){
-    var tbg=st.running?"#ffe0ef":"linear-gradient(135deg,"+st.accent+","+st.accent+"bb)";
-    var tc=st.running?st.accent:"#fff";
-    var tlbl=st.running?"⏸ 一時停止":(st.elapsed===0?"▶ スタート":"▶ 再開");
-    html+='<div class="ctrl-row">';
-    html+='<button class="btn-tog" style="background:'+tbg+';color:'+tc+'" onclick="toggleTimer(\''+wrapId+'\')">'+tlbl+'</button>';
-    html+='<button class="btn-rst" style="border:2px solid '+st.accent+'44;color:'+st.accent+'" onclick="resetTimer(\''+wrapId+'\')">🔄</button>';
-    html+='</div>';
-  }
-  html+='</div>';
-  wrap.innerHTML=html;
-
-  if(st.finished && afterFn) afterFn();
-}
-
-function toggleTimer(wrapId){
-  var st=wrapId==="lip-timer"?lipState:tongState;
-  if(st.running){
-    st.saved=st.elapsed; st.running=false;
-    if(st.raf)cancelAnimationFrame(st.raf);
-    renderTimer(st,wrapId,null);
-  } else {
-    try{ getAudioCtx().resume(); }catch(e){}
-    st.running=true;
-    st.startTs=performance.now()-st.saved*1000;
-    tickTimer(st,wrapId);
-  }
-}
-
-function resetTimer(wrapId){
-  var st=wrapId==="lip-timer"?lipState:tongState;
-  if(st.raf)cancelAnimationFrame(st.raf);
-  st.elapsed=0; st.running=false; st.finished=false; st.saved=0;
-  renderTimer(st,wrapId,null);
-}
-
-function tickTimer(st,wrapId){
-  var total=totalTime(st);
-  var e=Math.floor((performance.now()-st.startTs)/1000);
-  if(e>=total){
-    st.elapsed=total; st.running=false; st.finished=true;
-    beepDone();
-    renderTimer(st,wrapId,st.onDone);
-  } else {
-    st.elapsed=e;
-    // ステップが切り替わったら音を鳴らす
-    var gs=getStep(st);
-    var curStepIdx=0, acc=0;
-    for(var i=0;i<st.seq.length;i++){
-      if(acc+st.seq[i].dur>st.elapsed){curStepIdx=i;break;}
-      acc+=st.seq[i].dur; curStepIdx=i;
-    }
-    if(st.lastStep!==-1 && curStepIdx!==st.lastStep) beepSwitch();
-    st.lastStep=curStepIdx;
-    renderTimer(st,wrapId,null);
-    st.raf=requestAnimationFrame(function(){tickTimer(st,wrapId);});
-  }
-}
-
-// リップカード
-function renderLip(){
-  var el=document.getElementById("c-lip"); if(!el)return;
-  var r=todayRec().lip;
-  var col="#ff6b9d";
-  if(r&&r.done){
-    el.innerHTML='<div class="card" style="background:#f6fff6;border:2px solid #a8e6a8">'+
-      '<div class="badge">✅ 完了！</div>'+
-      '<div class="c-head"><span class="c-ico">💪</span><div>'+
-      '<div class="c-name" style="color:'+col+'">リットレメーター</div>'+
-      '<div class="c-desc">くちびるの力を鍛える · 3分間</div></div></div>'+
-      '<div class="done-box">⏰ 完了時刻：<strong>'+r.time+'</strong><br>'+
-      '<span style="display:block;margin-top:4px">📊 計測値：<strong style="color:'+col+';font-size:18px">'+r.measure+' kg</strong></span>'+
-      '<button class="redo" onclick="clearRec(\'lip\')">やり直す</button></div></div>';
-    return;
-  }
-  el.innerHTML='<div class="card" style="background:#fff0f5;border:2px solid '+col+'44">'+
-    '<div class="c-head"><span class="c-ico">💪</span><div>'+
-    '<div class="c-name" style="color:'+col+'">リットレメーター</div>'+
-    '<div class="c-desc">くちびるの力を鍛える · 3分間</div></div></div>'+
-    '<button class="btn-start" style="background:linear-gradient(135deg,'+col+','+col+'cc)" onclick="startLip()">▶ トレーニング開始！</button>'+
-    '</div>';
-}
-
-function startLip(){
-  var el=document.getElementById("c-lip"); if(!el)return;
-  var col="#ff6b9d";
-  el.innerHTML='<div class="card" style="background:#fff0f5;border:2px solid '+col+'44">'+
-    '<div class="c-head"><span class="c-ico">💪</span><div>'+
-    '<div class="c-name" style="color:'+col+'">リットレメーター</div>'+
-    '<div class="c-desc">くちびるの力を鍛える · 3分間</div></div></div>'+
-    '<div id="lip-timer"></div>'+
-    '<div id="lip-after"></div>'+
-    '</div>';
-  initTimer(lipState,LSEQ,col,function(){
-    document.getElementById("lip-after").innerHTML=
-      '<div class="mbox">'+
-      '<div class="mbox-title">🎉 お疲れさま！計測値を入力してね</div>'+
-      '<div class="mrow"><input class="minput" type="number" step="0.1" min="0" id="lip-m" placeholder="例: 0.8"/><span class="munit">kg</span></div>'+
-      '<button class="btn-save" id="lip-sv" style="background:#ddd" onclick="saveLip()">✅ 記録する！</button>'+
-      '</div>';
-    document.getElementById("lip-m").oninput=function(){
-      var sv=document.getElementById("lip-sv");
-      sv.style.background=this.value?"#4caf50":"#ddd";
-    };
-  });
-  renderTimer(lipState,"lip-timer",null);
-}
-
-function saveLip(){
-  var v=document.getElementById("lip-m"); if(!v||!v.value)return;
-  setTodayRec("lip",{done:true,measure:v.value,time:new Date().toTimeString().slice(0,5)});
-  renderToday();
-}
-
-// アゲローカード
-function renderTongue(){
-  var el=document.getElementById("c-tongue"); if(!el)return;
-  var r=todayRec().tongue;
-  var col="#ff9f43";
-  if(r&&r.done){
-    el.innerHTML='<div class="card" style="background:#f6fff6;border:2px solid #a8e6a8">'+
-      '<div class="badge">✅ 完了！</div>'+
-      '<div class="c-head"><span class="c-ico">👅</span><div>'+
-      '<div class="c-name" style="color:'+col+'">アゲローくん</div>'+
-      '<div class="c-desc">舌の力を鍛える · 3分間</div></div></div>'+
-      '<div class="done-box">⏰ 完了時刻：<strong>'+r.time+'</strong>'+
-      '<button class="redo" onclick="clearRec(\'tongue\')" style="display:block;margin-top:8px">やり直す</button></div></div>';
-    return;
-  }
-  el.innerHTML='<div class="card" style="background:#fffaf0;border:2px solid '+col+'44">'+
-    '<div class="c-head"><span class="c-ico">👅</span><div>'+
-    '<div class="c-name" style="color:'+col+'">アゲローくん</div>'+
-    '<div class="c-desc">舌の力を鍛える · 3分間</div></div></div>'+
-    '<button class="btn-start" style="background:linear-gradient(135deg,'+col+','+col+'cc)" onclick="startTongue()">▶ トレーニング開始！</button>'+
-    '</div>';
-}
-
-function startTongue(){
-  var el=document.getElementById("c-tongue"); if(!el)return;
-  var col="#ff9f43";
-  el.innerHTML='<div class="card" style="background:#fffaf0;border:2px solid '+col+'44">'+
-    '<div class="c-head"><span class="c-ico">👅</span><div>'+
-    '<div class="c-name" style="color:'+col+'">アゲローくん</div>'+
-    '<div class="c-desc">舌の力を鍛える · 3分間</div></div></div>'+
-    '<div id="tong-timer"></div>'+
-    '<div id="tong-after"></div>'+
-    '</div>';
-  initTimer(tongState,TSEQ,col,function(){
-    document.getElementById("tong-after").innerHTML=
-      '<button class="btn-save" style="background:#4caf50;box-shadow:0 4px 12px rgba(76,175,80,.4)" onclick="saveTongue()">✅ きょうの記録をつける！</button>';
-  });
-  renderTimer(tongState,"tong-timer",null);
-}
-
-function saveTongue(){
-  setTodayRec("tongue",{done:true,time:new Date().toTimeString().slice(0,5)});
-  renderToday();
-}
-
-function clearRec(k){
-  if(rec[todayStr()])delete rec[todayStr()][k];
-  save(); renderToday();
-}
-
+/* ========== きょうタブ ========== */
 function renderToday(){
   updateHeader();
   var r=todayRec();
-  var cnt=(r.lip&&r.lip.done?1:0)+(r.tongue&&r.tongue.done?1:0);
+  var lipDone=r.lip&&r.lip.done, tongDone=r.tongue&&r.tongue.done;
+  var cnt=(lipDone?1:0)+(tongDone?1:0);
   var el=document.getElementById("tab-today");
   el.innerHTML="";
+
+  // 完了バナー
   if(cnt===2){
-    var b=document.createElement("div");
-    b.id="done-banner";
-    b.innerHTML='<div style="font-size:38px">🎉</div><div style="font-size:18px;font-weight:800;margin-top:4px">きょうのトレーニング完了！</div><div style="font-size:13px;opacity:.9;margin-top:4px">えらい！きれいな歯並びに近づいてるよ💪</div>';
+    var b=document.createElement("div");b.id="done-banner";
+    b.innerHTML='<div style="font-size:38px">🎉✨</div><div style="font-size:20px;font-weight:900;margin-top:6px">きょうも完了！えらい！</div><div style="font-size:13px;opacity:.9;margin-top:6px">きれいな歯並びに近づいてるよ💕</div>';
     el.appendChild(b);
   }
-  var lc=document.createElement("div"); lc.id="c-lip";
-  var tc=document.createElement("div"); tc.id="c-tongue";
-  el.appendChild(lc); el.appendChild(tc);
-  renderLip(); renderTongue();
+
+  // 注意カード
+  var nc=document.createElement("div");nc.className="notice-card";
+  nc.innerHTML='<div class="notice-title">⚠️ トレーニング前に確認！</div>'+
+    '🧍 <strong>立った状態</strong>か<strong>足の裏がつく椅子</strong>に座ってね！<br>'+
+    '🦷 あげろーくんは<strong>歯でかんではいけません</strong>！';
+  el.appendChild(nc);
+
+  // リットレメーター
+  el.appendChild(buildLipSection(r.lip));
+  // あげろーくん
+  el.appendChild(buildTongSection(r.tongue));
+
+  // タイマー初期化（完了済みでない場合）
+  if(!lipDone){
+    LTimer=new Timer(LSEQ,"#ff6b9d","l-guide","l-svg-prog","l-time","l-tog","l-rst",function(){
+      document.getElementById("l-after").classList.remove("hidden");
+    });
+  }
+  if(!tongDone){
+    TTimer=new Timer(TSEQ,"#ff9f43","t-guide","t-svg-prog","t-time","t-tog","t-rst",function(){
+      document.getElementById("t-after").classList.remove("hidden");
+    });
+  }
 }
 
+function buildLipSection(r){
+  var col="#ff6b9d";
+  var wrap=document.createElement("div");
+  if(r&&r.done){
+    var diff=(2.5-parseFloat(r.measure)).toFixed(1);
+    var goalMsg=parseFloat(r.measure)>=2.5
+      ?'<div style="color:#4caf50;font-weight:800;margin-top:2px">🏆 目標達成！やったね！</div>'
+      :'<div style="color:#999;font-size:12px;margin-top:2px">目標まであと '+diff+'kg！</div>';
+    wrap.innerHTML='<div class="card" style="background:#f6fff6;border:2px solid #a8e6a8">'+
+      '<div class="badge">✅ 完了！</div>'+
+      '<div class="c-head"><span class="c-ico">💪</span><div>'+
+      '<div class="c-name" style="color:'+col+'">リットレメーター</div>'+
+      '<div class="c-desc">くちびるの力を鍛える · 3分間</div>'+
+      '<div class="c-goal">🎯 目標 2.5kg</div></div></div>'+
+      '<div class="done-box">⏰ 完了：<strong>'+r.time+'</strong> ／ 📊 <strong style="color:'+col+';font-size:18px">'+r.measure+' kg</strong>'+goalMsg+
+      '<button class="redo" onclick="clearRec(\'lip\')">やり直す</button></div></div>';
+    return wrap;
+  }
+  // タイマーUI（ボタンはここに固定配置）
+  var R=50,circ=2*Math.PI*R;
+  wrap.innerHTML='<div class="card" style="background:#fff0f5;border:2px solid '+col+'44">'+
+    '<div class="c-head"><span class="c-ico">💪</span><div>'+
+    '<div class="c-name" style="color:'+col+'">リットレメーター</div>'+
+    '<div class="c-desc">くちびるの力を鍛える · 3分間</div>'+
+    '<div class="c-goal">🎯 目標 2.5kg</div></div></div>'+
+    '<div class="tmr-wrap">'+
+      '<div id="l-guide" class="guide-board" style="background:'+col+'20;border:2.5px solid '+col+'66">'+
+        '<div class="gb-emoji">💪</div>'+
+        '<div class="gb-label" style="color:'+col+'">じゅんび</div>'+
+      '</div>'+
+      '<div class="circ-wrap">'+
+        '<svg width="120" height="120">'+
+          '<circle cx="60" cy="60" r="'+R+'" fill="none" stroke="#f0d6ff" stroke-width="9"/>'+
+          '<circle id="l-svg-prog" cx="60" cy="60" r="'+R+'" fill="none" stroke="'+col+'" stroke-width="9"'+
+          ' stroke-dasharray="'+circ+'" stroke-dashoffset="'+circ+'" stroke-linecap="round" transform="rotate(-90 60 60)"/>'+
+        '</svg>'+
+        '<div class="circ-center" id="l-time">'+
+          '<span class="circ-time">3:00</span><span class="circ-lbl">のこり</span>'+
+        '</div>'+
+      '</div>'+
+      '<div class="ctrl-row">'+
+        '<button id="l-tog" class="btn-tog" style="background:linear-gradient(135deg,'+col+','+col+'cc);color:#fff">▶ スタート</button>'+
+        '<button id="l-rst" class="btn-rst">🔄 やり直し</button>'+
+      '</div>'+
+    '</div>'+
+    '<div id="l-after" class="hidden">'+
+      '<div class="mbox">'+
+        '<div class="mbox-title">🎉 おつかれさま！計測値を入力してね（目標：2.5kg）</div>'+
+        '<div class="mrow"><input class="minput" type="number" step="0.1" min="0" id="l-measure" placeholder="例: 1.2"/><span class="munit">kg</span></div>'+
+        '<button class="btn-save" id="l-save-btn" style="background:#ddd" onclick="saveLip()">✅ 記録する！</button>'+
+      '</div>'+
+    '</div>'+
+    '</div>';
+  // 計測入力の活性化
+  setTimeout(function(){
+    var mi=document.getElementById("l-measure");
+    if(mi)mi.addEventListener("input",function(){
+      var sb=document.getElementById("l-save-btn");
+      if(sb)sb.style.background=this.value?"#4caf50":"#ddd";
+    });
+  },100);
+  return wrap;
+}
+
+function buildTongSection(r){
+  var col="#ff9f43";
+  var wrap=document.createElement("div");
+  if(r&&r.done){
+    wrap.innerHTML='<div class="card" style="background:#f6fff6;border:2px solid #a8e6a8">'+
+      '<div class="badge">✅ 完了！</div>'+
+      '<div class="c-head"><span class="c-ico">👅</span><div>'+
+      '<div class="c-name" style="color:'+col+'">あげろーくん</div>'+
+      '<div class="c-desc">舌の力を鍛える · 3分間</div></div></div>'+
+      '<div class="done-box">⏰ 完了：<strong>'+r.time+'</strong>'+
+      '<button class="redo" onclick="clearRec(\'tongue\')" style="display:block;margin-top:6px">やり直す</button></div></div>';
+    return wrap;
+  }
+  var R=50,circ=2*Math.PI*R;
+  wrap.innerHTML='<div class="card" style="background:#fffaf0;border:2px solid '+col+'44">'+
+    '<div class="c-head"><span class="c-ico">👅</span><div>'+
+    '<div class="c-name" style="color:'+col+'">あげろーくん</div>'+
+    '<div class="c-desc">舌の力を鍛える · 3分間</div></div></div>'+
+    '<div class="tmr-wrap">'+
+      '<div id="t-guide" class="guide-board" style="background:'+col+'20;border:2.5px solid '+col+'66">'+
+        '<div class="gb-emoji">👅</div>'+
+        '<div class="gb-label" style="color:'+col+'">じゅんび</div>'+
+      '</div>'+
+      '<div class="circ-wrap">'+
+        '<svg width="120" height="120">'+
+          '<circle cx="60" cy="60" r="'+R+'" fill="none" stroke="#f0d6ff" stroke-width="9"/>'+
+          '<circle id="t-svg-prog" cx="60" cy="60" r="'+R+'" fill="none" stroke="'+col+'" stroke-width="9"'+
+          ' stroke-dasharray="'+circ+'" stroke-dashoffset="'+circ+'" stroke-linecap="round" transform="rotate(-90 60 60)"/>'+
+        '</svg>'+
+        '<div class="circ-center" id="t-time">'+
+          '<span class="circ-time">3:00</span><span class="circ-lbl">のこり</span>'+
+        '</div>'+
+      '</div>'+
+      '<div class="ctrl-row">'+
+        '<button id="t-tog" class="btn-tog" style="background:linear-gradient(135deg,'+col+','+col+'cc);color:#fff">▶ スタート</button>'+
+        '<button id="t-rst" class="btn-rst">🔄 やり直し</button>'+
+      '</div>'+
+    '</div>'+
+    '<div id="t-after" class="hidden">'+
+      '<button class="btn-save" style="background:#4caf50" onclick="saveTongue()">✅ きょうの記録をつける！</button>'+
+    '</div>'+
+    '</div>';
+  return wrap;
+}
+
+function saveLip(){
+  var v=document.getElementById("l-measure");
+  if(!v||!v.value)return;
+  setTR("lip",{done:true,measure:v.value,time:new Date().toTimeString().slice(0,5)});
+  renderToday();
+}
+function saveTongue(){
+  setTR("tongue",{done:true,time:new Date().toTimeString().slice(0,5)});
+  renderToday();
+}
+function clearRec(k){
+  if(rec[todayStr()])delete rec[todayStr()][k];
+  save();renderToday();
+}
+
+/* ========== 履歴 ========== */
 function renderHistory(){
-  var el=document.getElementById("tab-history"); el.innerHTML="";
+  var el=document.getElementById("tab-history");el.innerHTML="";
   var days=Object.keys(rec).sort(function(a,b){return b>a?1:-1;}).slice(0,30);
   if(!days.length){el.innerHTML='<div class="empty">まだ記録がないよ😊<br>トレーニングしたら記録してね！</div>';return;}
   days.forEach(function(day){
     var dr=rec[day]||{};
     var all=dr.lip&&dr.lip.done&&dr.tongue&&dr.tongue.done;
-    var h='<div class="hcard" style="border:2px solid '+(all?"#a8e6a8":"#ede0ff")+'">';
-    h+='<div><span class="hdate">📅 '+day.replace(/-/g,"/")+'</span>'+(all?'<span class="hall">全完了⭐</span>':'')+'</div>';
-    [{label:"アゲローくん",em:"👅",r:dr.tongue,col:"#ff9f43"},
+    var h='<div class="hcard" style="border:2px solid '+(all?"#f0d6ff":"#f5d0ff")+'">';
+    h+='<div><span class="hdate">📅 '+day.replace(/-/g,"/")+'</span>'+(all?'<span class="hall">全完了💕</span>':'')+'</div>';
+    [{label:"あげろーくん",em:"👅",r:dr.tongue,col:"#ff9f43"},
      {label:"リットレメーター",em:"💪",r:dr.lip,col:"#ff6b9d",unit:"kg"}].forEach(function(x){
-      h+='<div class="hrow" style="background:'+(x.r&&x.r.done?"#f6fff6":"#fff5f5")+'">';
+      h+='<div class="hrow" style="background:'+(x.r&&x.r.done?"#f9f0ff":"#fff5f5")+'">';
       h+='<span style="font-size:18px">'+x.em+'</span>';
       h+='<div style="flex:1;font-weight:700;font-size:12px;color:#555">'+x.label;
       if(x.r&&x.r.measure)h+='<span style="margin-left:6px;color:'+x.col+';font-weight:800;font-size:13px">'+x.r.measure+(x.unit||"")+'</span>';
       h+='</div><span style="font-size:16px">'+(x.r&&x.r.done?"✅":"❌")+'</span></div>';
     });
-    h+='</div>';
-    el.innerHTML+=h;
+    h+='</div>';el.innerHTML+=h;
   });
 }
 
+/* ========== 成績 ========== */
 function renderStats(){
-  var el=document.getElementById("tab-stats"); el.innerHTML="";
+  var el=document.getElementById("tab-stats");el.innerHTML="";
   var days=Object.keys(rec);
   var perfect=days.filter(function(d){return rec[d].lip&&rec[d].lip.done&&rec[d].tongue&&rec[d].tongue.done;}).length;
   var ms=days.map(function(d){return parseFloat((rec[d].lip||{}).measure);}).filter(function(v){return !isNaN(v);});
@@ -453,7 +572,7 @@ function renderStats(){
   for(var i=0;i<sorted.length;i++){var dr=rec[sorted[i]];if(dr.lip&&dr.lip.done&&dr.tongue&&dr.tongue.done)streak++;else break;}
   var stats=[
     {em:"📅",val:days.length+"日",lbl:"記録した日数"},
-    {em:"⭐",val:perfect+"日",lbl:"全完了の日"},
+    {em:"💕",val:perfect+"日",lbl:"全完了の日"},
     {em:"🔥",val:streak+"日",lbl:"連続完了"},
     {em:"🏆",val:maxL?maxL+"kg":"-",lbl:"リットレ最高値"},
     {em:"📊",val:latL?latL+"kg":"-",lbl:"リットレ最新値"},
@@ -461,9 +580,18 @@ function renderStats(){
   var h='<div class="sgrid">';
   stats.forEach(function(s){h+='<div class="scard"><div class="s-ico">'+s.em+'</div><div class="s-val">'+s.val+'</div><div class="s-lbl">'+s.lbl+'</div></div>';});
   h+='</div>';
+  if(latL!==null&&latL<2.5){
+    h+='<div style="background:#fff3cd;border-radius:14px;padding:14px;text-align:center;margin-top:10px;">'+
+      '<div style="font-size:13px;color:#e67e00;font-weight:700">🎯 目標2.5kgまであと <span style="font-size:22px;font-weight:900">'+(2.5-latL).toFixed(1)+'kg</span>！</div>'+
+      '<div style="font-size:12px;color:#aaa;margin-top:4px">毎日続けたら必ず届くよ💪</div></div>';
+  }else if(latL!==null&&latL>=2.5){
+    h+='<div style="background:#f0e6ff;border-radius:14px;padding:14px;text-align:center;margin-top:10px;">'+
+      '<div style="font-size:15px;color:#c44dff;font-weight:900">🏆 目標2.5kg達成！みおりちゃんすごい！</div></div>';
+  }
   el.innerHTML=h;
 }
 
+/* ========== 起動 ========== */
 renderToday();
 </script>
 </body>
